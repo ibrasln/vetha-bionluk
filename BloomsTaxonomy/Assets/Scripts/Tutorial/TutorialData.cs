@@ -2,10 +2,9 @@ using UnityEngine;
 
 namespace Tutorial
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME")]
+    [CreateAssetMenu(fileName = "TutorialData_", menuName = "Data/Tutorial")]
     public class TutorialData : ScriptableObject
     {
-        public Sprite RobotSprite;
-        public string Instruction;
+        public TutorialStep[] Steps;
     }
 }

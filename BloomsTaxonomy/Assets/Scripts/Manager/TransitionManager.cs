@@ -13,8 +13,8 @@ namespace Manager
     public class TransitionManager : MySingleton<TransitionManager>, IInitializable
     {
         [ReadOnly] public UIScene CurrentScene;
-        [ReadOnly] public UIScene PreviousScene;
-        [SerializeField] private UIScene fadeScreenScene;
+        
+        [SerializeField] private UIWindow fadeScreenWindow;
         [SerializeField] private CanvasGroup fadeScreen;
         [SerializeField] private BeginningScene beginningScene;
 
@@ -32,15 +32,15 @@ namespace Manager
         private IEnumerator InitializeRoutine()
         {
             beginningScene.Activate();
-            fadeScreenScene.Activate();
-            fadeScreen.DOFade(0f, 1f);
+            fadeScreenWindow.Activate();
+            fadeScreenWindow.Close();
             CurrentScene = beginningScene;
             
             yield return new WaitForSeconds(1f);
 
             yield return StartCoroutine(beginningScene.InitializeRoutine());
             
-            fadeScreenScene.Deactivate();
+            fadeScreenWindow.Deactivate();
         }
         
         public void ChangeScene(UIScene scene)
@@ -50,20 +50,20 @@ namespace Manager
 
         private IEnumerator ChangeSceneRoutine(UIScene scene)
         {
-            fadeScreenScene.Activate();
-            fadeScreen.DOFade(1, .75f);
+            fadeScreenWindow.Activate();
+            fadeScreenWindow.Open();
             
             yield return new WaitForSeconds(1f);
             
             CurrentScene.Deactivate();
-            PreviousScene = CurrentScene;
             CurrentScene = scene;
             CurrentScene.Activate();
-            fadeScreen.DOFade(0, .75f);
+            
+            fadeScreenWindow.Close();
             
             yield return new WaitForSeconds(1f);
             
-            fadeScreenScene.Deactivate();
+            fadeScreenWindow.Deactivate();
             OnSceneChanged?.Invoke(CurrentScene);
         }
 
@@ -74,7 +74,7 @@ namespace Manager
 
         private IEnumerator AddWindowRoutine(UIWindow window)
         {
-            fadeScreenScene.Activate();
+            fadeScreenWindow.Activate();
             fadeScreen.DOFade(.5f, .5f);
             window.Activate();
             
@@ -90,11 +90,11 @@ namespace Manager
 
         private IEnumerator CloseWindowRoutine(UIWindow window)
         {
-            fadeScreen.DOFade(0f, .5f);
+            fadeScreenWindow.Close();
             
             yield return new WaitForSeconds(.5f);
             
-            fadeScreenScene.Deactivate();
+            fadeScreenWindow.Deactivate();
             window.Deactivate();
             OnWindowClosed?.Invoke(window);
         }

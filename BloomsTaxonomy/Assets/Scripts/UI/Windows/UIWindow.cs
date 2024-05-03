@@ -1,9 +1,8 @@
 using Interfaces;
-using UnityEngine;
 
 namespace UI
 {
-    public class UIWindow : MonoBehaviour, IInitializable, IDisposable, IActivatable
+    public class UIWindow : UIObject, IInitializable, IDisposable, IActivatable
     {
         public void Initialize()
         {
