@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b71e5892a345748ee8231f428ed7fe, type: 3}
+  m_Name: TutorialData_SecondScene
+  m_EditorClassIdentifier: 
+  Steps:
+  - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
+    Instruction: "Not defteri. Bu her zaman sol alt k\xF6\u015Fede senin i\xE7in
+      haz\u0131r bekliyor olacak."
+    PanelState: 0
+  - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
+    Instruction: "Rapor notlar\u0131. Bu her zaman sol alt k\xF6\u015Fede senin i\xE7in
+      haz\u0131r bekliyor olacak."
+    PanelState: 0
+  - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
+    Instruction: "\xC7\u0131k\u0131\u015F butonu. Bu her zaman sa\u011F alt k\xF6\u015Fede
+      senin i\xE7in haz\u0131r bekliyor olacak."
+    PanelState: 0
+  - EkoBotSprite: {fileID: 1883886435, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
+    Instruction: "Malzemeleri ald\u0131n, \u015Fimdi g\xF6reve gitme zaman\u0131
+      <playerName>!"
+    PanelState: 0

@@ -77,8 +77,9 @@ namespace Manager
             fadeScreenWindow.Activate();
             fadeScreen.DOFade(.5f, .5f);
             window.Activate();
+            window.Open();
             
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(1f);
             
             OnWindowAdded?.Invoke(window);
         }
@@ -91,8 +92,9 @@ namespace Manager
         private IEnumerator CloseWindowRoutine(UIWindow window)
         {
             fadeScreenWindow.Close();
+            window.Close();
             
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(1f);
             
             fadeScreenWindow.Deactivate();
             window.Deactivate();

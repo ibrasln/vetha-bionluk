@@ -33,11 +33,13 @@ namespace UI.Scenes
         {
             if (_currentStepIndex >= _currentTutorial.Steps.Length)
             {
-                StartCoroutine(StopTutorialRoutine());
+                yield return StartCoroutine(StopTutorialRoutine());
+                TransitionManager.Instance.ChangeScene(UIObjects.Instance.SecondTutorialScene);
                 yield break;
             }
 
             _currentStep = _currentTutorial.Steps[_currentStepIndex];
+            
             ekoBotImage.sprite = _currentStep.PanelState switch
             {
                 PanelState.Upper => null,
@@ -47,7 +49,11 @@ namespace UI.Scenes
             
             SetTutorialComponents();
             
+            _instructionText.text = string.Empty;
+            
             _currentTutorialPanel.Open();
+
+            yield return new WaitForSeconds(.75f);
             
             yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
             
