@@ -1,7 +1,7 @@
 using System.Collections;
 using UI.Scenes;
 
-namespace UI
+namespace UI.Scenes
 {
     public class PlanetScene : UIScene
     {
