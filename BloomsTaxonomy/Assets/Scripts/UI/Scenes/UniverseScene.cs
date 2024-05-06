@@ -1,4 +1,7 @@
+using System;
 using System.Collections;
+using Tutorial;
+using UnityEngine;
 
 namespace UI.Scenes
 {
@@ -6,12 +9,41 @@ namespace UI.Scenes
     {
         protected override IEnumerator SkipStepRoutine()
         {
-            throw new System.NotImplementedException();
+            yield return new WaitForSeconds(1f);
+            
+            _currentStepIndex++;
+            OnSkippedStep?.Invoke();
+            StartCoroutine(PlayTutorialStepRoutine());
         }
 
         protected override IEnumerator PlayTutorialStepRoutine()
         {
-            throw new System.NotImplementedException();
+            if (_currentStepIndex >= _currentTutorial.Steps.Length)
+            {
+                yield return StartCoroutine(StopTutorialRoutine());
+                yield break;
+            }
+
+            _currentStep = _currentTutorial.Steps[_currentStepIndex];
+            
+            ekoBotImage.sprite = _currentStep.PanelState switch
+            {
+                PanelState.Upper => null,
+                PanelState.Middle => _currentStep.EkoBotSprite,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            
+            SetTutorialComponents();
+            
+            _instructionText.text = string.Empty;
+            
+            _currentTutorialPanel.Open();
+
+            yield return new WaitForSeconds(.75f);
+            
+            yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
+            
+            yield return new WaitForSeconds(.5f);            
         }
     }
 }

@@ -6,28 +6,36 @@ namespace UI
 {
     public class UIObject : MonoBehaviour, IActivatable
     {
-        [SerializeField] private AnimationSequencerController openAnimation;
-        [SerializeField] private AnimationSequencerController closeAnimation;
+        public AnimationSequencerController OpenAnimation;
+        public AnimationSequencerController CloseAnimation;
 
-        private bool _isOpened;
-        private bool _isClosed;
+        public bool IsOpened;
+        public bool IsClosed;
 
         public void Open()
         {
-            if (_isOpened) return;
+            if (IsOpened) return;
             
-            openAnimation.Play();
-            _isOpened = true;
-            _isClosed = false;
+            OpenAnimation.Play();
         }
         
         public void Close()
         {
-            if (_isClosed) return;
+            if (IsClosed) return;
             
-            closeAnimation.Play();
-            _isClosed = true;
-            _isOpened = false;
+            CloseAnimation.Play();
+        }
+
+        public void OnOpened()
+        {
+            IsOpened = true;
+            IsClosed = false;
+        }
+
+        public void OnClosed()
+        {
+            IsClosed = true;
+            IsOpened = false;
         }
 
         public void Activate()

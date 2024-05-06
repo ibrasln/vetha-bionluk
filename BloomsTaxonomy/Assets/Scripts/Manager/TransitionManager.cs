@@ -58,12 +58,19 @@ namespace Manager
             CurrentScene.Deactivate();
             CurrentScene = scene;
             CurrentScene.Activate();
-            
+
             fadeScreenWindow.Close();
             
             yield return new WaitForSeconds(1f);
             
             fadeScreenWindow.Deactivate();
+            
+            scene.Open();
+            
+            yield return new WaitWhile(() => !scene.IsOpened);
+
+            scene.StartTutorial(0);
+
             OnSceneChanged?.Invoke(CurrentScene);
         }
 

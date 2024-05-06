@@ -10,7 +10,7 @@ using IDisposable = Interfaces.IDisposable;
 
 namespace UI.Scenes
 {
-    public abstract class UIScene : UIObject, IInitializable, IDisposable, IActivatable
+    public abstract class UIScene : UIObject, IInitializable, IDisposable
     {
         public TutorialData[] Tutorials;
         public UIElement[] TutorialPanels;
@@ -28,14 +28,11 @@ namespace UI.Scenes
         public Action OnTutorialStopped;
         public Action OnSkippedStep;
 
-        private void OnEnable()
-        {
-            if (Tutorials.Length > 0) StartTutorial(0);
-        }
-
         #region Start & Stop Tutorial
-        private void StartTutorial(int index)
+        public void StartTutorial(int index)
         {
+            if (Tutorials.Length <= 0) return;
+
             _currentTutorial = Tutorials[index];
             
             OnTutorialStarted?.Invoke();
@@ -146,6 +143,7 @@ namespace UI.Scenes
             string newText = string.Join(" ", words);
             
             // Set the size of the text
+            _instructionText.enableAutoSizing = true;
             _instructionText.text = newText;
             _instructionText.ForceMeshUpdate();
             _instructionText.enableAutoSizing = false;
@@ -163,16 +161,6 @@ namespace UI.Scenes
         public void Dispose()
         {
             
-        }
-
-        public void Activate()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Deactivate()
-        {  
-            gameObject.SetActive(false);
         }
     }
 }

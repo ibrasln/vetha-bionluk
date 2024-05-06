@@ -2,7 +2,7 @@ using Interfaces;
 
 namespace UI
 {
-    public class UIWindow : UIObject, IInitializable, IDisposable, IActivatable
+    public class UIWindow : UIObject, IInitializable, IDisposable
     {
         public void Initialize()
         {
@@ -12,16 +12,6 @@ namespace UI
         public void Dispose()
         {
             
-        }
-
-        public void Activate()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Deactivate()
-        {  
-            gameObject.SetActive(false);
         }
     }
 }

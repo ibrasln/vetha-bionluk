@@ -28,7 +28,8 @@ namespace UI.Scenes
         {
             if (_currentStepIndex >= _currentTutorial.Steps.Length)
             {
-                StartCoroutine(StopTutorialRoutine());
+                yield return StartCoroutine(StopTutorialRoutine());
+                TransitionManager.Instance.ChangeScene(UIObjects.Instance.UniverseScene);
                 yield break;
             }
 
