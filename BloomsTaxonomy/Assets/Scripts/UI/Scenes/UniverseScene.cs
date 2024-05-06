@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Manager;
 using Tutorial;
 using UnityEngine;
 
@@ -7,6 +8,11 @@ namespace UI.Scenes
 {
     public class UniverseScene : UIScene
     {
+        private void OnEnable()
+        {
+            TransitionManager.Instance.AddWindow(UIObjects.Instance.GeneralWindow);
+        }
+
         protected override IEnumerator SkipStepRoutine()
         {
             yield return new WaitForSeconds(1f);

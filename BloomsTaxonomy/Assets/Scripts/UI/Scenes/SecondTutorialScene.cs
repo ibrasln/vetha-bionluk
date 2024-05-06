@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using Manager;
-using Tutorial;
 using UnityEngine;
 
 namespace UI.Scenes

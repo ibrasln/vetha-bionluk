@@ -56,44 +56,10 @@ namespace UI.Scenes
         public void SkipStep() => StartCoroutine(SkipStepRoutine());
 
         protected abstract IEnumerator SkipStepRoutine();
-        
-            // _continueButton.Close();
-            //
-            // yield return new WaitForSeconds(1f);
-            //
-            // _currentStepIndex++;
-            // OnSkippedStep?.Invoke();
-            // StartCoroutine(PlayTutorialStepRoutine());
         #endregion
         
-
         protected abstract IEnumerator PlayTutorialStepRoutine();
         
-            // if (_currentStepIndex >= _currentTutorial.Steps.Length)
-            // {
-            //     //TODO: Stop tutorial.
-            //     yield break;
-            // }
-            //
-            // _currentStep = _currentTutorial.Steps[_currentStepIndex];
-            // ekoBotImage.sprite = _currentStep.PanelState switch
-            // {
-            //     PanelState.Upper => null,
-            //     PanelState.Middle => _currentStep.EkoBotSprite,
-            //     _ => throw new ArgumentOutOfRangeException()
-            // };
-            //
-            // SetTutorialComponents();
-            //
-            // _currentTutorialPanel.Open();
-            //
-            // yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
-            //
-            // yield return new WaitForSeconds(.5f);
-            //
-            // _continueButton.Open();
-        
-  
         protected void SetTutorialComponents()
         {
             _currentTutorialPanel = _currentStep.PanelState switch

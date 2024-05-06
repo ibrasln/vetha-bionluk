@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28b71e5892a345748ee8231f428ed7fe, type: 3}
-  m_Name: TutorialData_AresScene
+  m_Name: TutorialData_AresScene_2
   m_EditorClassIdentifier: 
   Steps:
-  - EkoBotSprite: {fileID: -586182886, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
-    Instruction: "T\xFCm gezegenlerden veriler toplaman\u0131 ve bize bir yer bulman\u0131
-      istiyorum. Haydi g\xF6reve <playerName>.\r"
-    PanelState: 1
+  - EkoBotSprite: {fileID: 0}
+    Instruction: "Hayvanlar\u0131 zincirlerden kurtard\u0131n, ancak g\xF6rd\xFC\u011F\xFCn
+      gibi birbirleri ile beslendiler. Canavar\u0131n bu\r zincirlere BES\u0130N
+      Z\u0130NC\u0130R\u0130 demesinin bir sebebi varm\u0131\u015F demek ki.."
+    PanelState: 0
