@@ -8,11 +8,15 @@ namespace UI
     public class PlanetObject : UIElement
     {
         public bool IsLocked;
+
+        [SerializeField] private PlanetScene previousPlanetScene;
+        [SerializeField] private PlanetScene planetScene;
         [SerializeField] private Image lockedImage;
         [SerializeField] private Button planetButton;
 
         private void OnEnable() 
         {
+            CheckIfShouldUnlock();
             if (IsLocked) Lock();
             else Unlock();
         }
@@ -29,7 +33,12 @@ namespace UI
             planetButton.interactable = true;
         }
 
-        public void EnterPlanet(UIScene planetScene)
+        private void CheckIfShouldUnlock()
+        {
+            IsLocked = !previousPlanetScene.IsCompleted;
+        }
+        
+        public void EnterPlanet()
         {
             if (planetScene == null) return;
             TransitionManager.Instance.ChangeScene(planetScene);

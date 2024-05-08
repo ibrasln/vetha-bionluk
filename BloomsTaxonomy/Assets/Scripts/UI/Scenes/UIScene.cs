@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Interfaces;
 using Manager;
+using NaughtyAttributes;
 using TMPro;
 using Tutorial;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace UI.Scenes
     {
         public TutorialData[] Tutorials;
         public UIElement[] TutorialPanels;
+        [ReadOnly] public int CurrentTutorialIndex;
         
         [SerializeField] protected Image ekoBotImage;
         protected TextMeshProUGUI _instructionText;
@@ -48,7 +50,19 @@ namespace UI.Scenes
             
             yield return new WaitForSeconds(1f);
             
+            ekoBotImage.gameObject.SetActive(false);
+            
+            if (CurrentTutorialIndex >= Tutorials.Length)
+            {
+                CurrentTutorialIndex = 0;
+            }
+            else
+            {
+                CurrentTutorialIndex++;
+            }
+            
             OnTutorialStopped?.Invoke();
+            
         }
         #endregion
 
@@ -80,7 +94,7 @@ namespace UI.Scenes
             
             string newText = SetText(text);
 
-            float timeBetweenCharacters = .045f;
+            float timeBetweenCharacters = .01f;
 
             while (currentCharacterIndex < newText.Length)
             {

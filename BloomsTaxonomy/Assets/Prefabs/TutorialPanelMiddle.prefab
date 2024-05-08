@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300054, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b313e340367a0a49bea677586080afa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -196,7 +196,19 @@ MonoBehaviour:
       m_Calls: []
   onFinishedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6673868143457445621}
+        m_TargetAssemblyTypeName: UI.UIObject, Assembly-CSharp
+        m_MethodName: OnClosed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onProgressEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -326,7 +338,7 @@ MonoBehaviour:
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 12
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -428,7 +440,19 @@ MonoBehaviour:
       m_Calls: []
   onFinishedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6673868143457445621}
+        m_TargetAssemblyTypeName: UI.UIObject, Assembly-CSharp
+        m_MethodName: OnOpened
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onProgressEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -526,7 +550,19 @@ MonoBehaviour:
       m_Calls: []
   onFinishedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5407633226870672200}
+        m_TargetAssemblyTypeName: UI.UIObject, Assembly-CSharp
+        m_MethodName: OnOpened
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onProgressEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -540,7 +576,7 @@ MonoBehaviour:
         delay: 0
         flowType: 0
         target: {fileID: 719557694951028407}
-        duration: 1
+        duration: 0.75
         loopCount: 0
         loopType: 0
         actions:
@@ -812,7 +848,19 @@ MonoBehaviour:
       m_Calls: []
   onFinishedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5407633226870672200}
+        m_TargetAssemblyTypeName: UI.UIObject, Assembly-CSharp
+        m_MethodName: OnClosed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onProgressEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -826,7 +874,7 @@ MonoBehaviour:
         delay: 0
         flowType: 0
         target: {fileID: 719557694951028407}
-        duration: 1
+        duration: 0.75
         loopCount: 0
         loopType: 0
         actions:

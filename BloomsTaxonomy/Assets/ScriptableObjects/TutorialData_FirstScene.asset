@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Steps:
   - EkoBotSprite: {fileID: -586182886, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
-    Instruction: "Selam! Sen Galaksinin Koruyucusu olmal\u0131s\u0131n."
+    Instruction: "Selam! Sen Galaksi'nin Koruyucusu olmal\u0131s\u0131n."
     PanelState: 1
   - EkoBotSprite: {fileID: -586182886, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "Bana ismini s\xF6yler misin?"
@@ -38,8 +38,8 @@ MonoBehaviour:
     PanelState: 1
   - EkoBotSprite: {fileID: -131795814, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "Kar\u015F\u0131l\u0131\u011F\u0131nda elmaslar verecekler. Ayr\u0131ca
-      g\xF6rev sonunda Galaksinin Koruyucusu Sertifikas\u0131n\u0131 da almaya hak
-      kazanacaks\u0131n."
+      g\xF6rev sonunda Galaksi'nin Koruyucusu Sertifikas\u0131'n\u0131 da almaya
+      hak kazanacaks\u0131n."
     PanelState: 1
   - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "\xD6nce sana kullanaca\u011F\u0131n e\u015Fyalar\u0131n\u0131 tan\u0131taca\u011F\u0131m.

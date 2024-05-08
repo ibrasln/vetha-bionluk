@@ -33,6 +33,7 @@ namespace UI.Scenes
 
             _currentStep = _currentTutorial.Steps[_currentStepIndex];
             
+            ekoBotImage.gameObject.SetActive(true);
             ekoBotImage.sprite = _currentStep.EkoBotSprite;
             
             SetTutorialComponents();

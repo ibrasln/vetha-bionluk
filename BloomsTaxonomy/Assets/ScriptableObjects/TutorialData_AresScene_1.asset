@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Steps:
   - EkoBotSprite: {fileID: -1280327589, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
-    Instruction: "Ares gezegeninde bir\r canavar beslenmek i\xE7in\r canl\u0131lar\u0131
-      zincirlemi\u015F. Bu\r canl\u0131lar\u0131 zincirlerden\r kurtarmal\u0131s\u0131n."
+    Instruction: "Ares gezegeninde bir canavar beslenmek i\xE7in canl\u0131lar\u0131
+      zincirlemi\u015F. Bu canl\u0131lar\u0131 zincirlerden kurtarmal\u0131s\u0131n."
     PanelState: 1
   - EkoBotSprite: {fileID: 0}
     Instruction: "Soldan ba\u015Flayarak zincirleri k\u0131rmal\u0131s\u0131n. Canavar,
-      \xFCretici canl\u0131lardan ba\u015Flayarak\r zincirlemi\u015F olmal\u0131."
+      \xFCretici canl\u0131lardan ba\u015Flayarak zincirlemi\u015F olmal\u0131."
     PanelState: 0

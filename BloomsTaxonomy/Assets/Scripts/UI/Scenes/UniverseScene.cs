@@ -8,6 +8,8 @@ namespace UI.Scenes
 {
     public class UniverseScene : UIScene
     {
+        [SerializeField] private PlanetObject[] planets;
+        
         private void OnEnable()
         {
             TransitionManager.Instance.AddWindow(UIObjects.Instance.GeneralWindow);
@@ -32,12 +34,18 @@ namespace UI.Scenes
 
             _currentStep = _currentTutorial.Steps[_currentStepIndex];
             
-            ekoBotImage.sprite = _currentStep.PanelState switch
+            switch (_currentStep.PanelState)
             {
-                PanelState.Upper => null,
-                PanelState.Middle => _currentStep.EkoBotSprite,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+                case PanelState.Upper:
+                    ekoBotImage.gameObject.SetActive(false);
+                    break;
+                case PanelState.Middle:
+                    ekoBotImage.gameObject.SetActive(true);
+                    ekoBotImage.sprite = _currentStep.EkoBotSprite;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
             
             SetTutorialComponents();
             

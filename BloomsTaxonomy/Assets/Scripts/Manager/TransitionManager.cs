@@ -69,7 +69,7 @@ namespace Manager
             
             yield return new WaitWhile(() => !scene.IsOpened);
 
-            scene.StartTutorial(0);
+            scene.StartTutorial(scene.CurrentTutorialIndex);
 
             OnSceneChanged?.Invoke(CurrentScene);
         }

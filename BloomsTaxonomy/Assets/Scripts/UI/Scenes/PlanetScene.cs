@@ -1,72 +1,39 @@
 using System;
 using System.Collections;
-using Manager;
-using Tutorial;
 using UnityEngine;
 
 namespace UI.Scenes
 {
     public class PlanetScene : UIScene
     {
-        [SerializeField] private Transform missionsParent;
+        public bool IsCompleted;
+        
         [SerializeField] private Mission.Mission[] missions;
         
-        private int _currentMissionIndex;
+        protected int currentMissionIndex;
+        protected Mission.Mission currentMission;
 
-        private void StartMission(int index)
-        {
-            
-        }
+        public void SetIsCompleted(bool state) => IsCompleted = state;
         
+        public virtual void StartMission(){}
+        public void SetMission()
+        {
+            if (currentMission != null) currentMission.Deactivate();
+            if (currentMissionIndex < missions.Length) currentMission = missions[currentMissionIndex];
+            
+            currentMission.Activate();
+            currentMissionIndex++;
+        }
+
+
         protected override IEnumerator SkipStepRoutine()
         {
-            _continueButton.Close();
-
-            yield return new WaitForSeconds(1f);
-            
-            _currentStepIndex++;
-            OnSkippedStep?.Invoke();
-            StartCoroutine(PlayTutorialStepRoutine());
+            yield break;
         }
-        
+
         protected override IEnumerator PlayTutorialStepRoutine()
         {
-            if (_currentStepIndex >= _currentTutorial.Steps.Length)
-            {
-                yield return StartCoroutine(StopTutorialRoutine());
-                StartMission(_currentMissionIndex);
-                yield break;
-            }
-
-            _currentStep = _currentTutorial.Steps[_currentStepIndex];
-            
-            switch (_currentStep.PanelState)
-            {
-                case PanelState.Upper:
-                    ekoBotImage.gameObject.SetActive(false);
-                    break;
-                case PanelState.Middle:
-                    ekoBotImage.gameObject.SetActive(true);
-                    ekoBotImage.sprite = _currentStep.EkoBotSprite;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-            
-            SetTutorialComponents();
-            
-            _instructionText.text = string.Empty;
-            
-            _currentTutorialPanel.Open();
-
-            yield return new WaitForSeconds(.75f);
-            
-            yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
-            
-            yield return new WaitForSeconds(.5f);
-            
-            _continueButton.Open();
+            yield break;
         }
-
     }
 }

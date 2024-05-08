@@ -9,7 +9,13 @@ namespace Mission
         public Action OnMissionStarted;
         public Action OnMissionCompleted;
 
-        public void CallOnMissionStarted() => OnMissionStarted?.Invoke();
+        public Report Report;
+        
+        public void CallOnMissionStarted()
+        {
+            Debug.Log($"{gameObject.name} mission started!");
+            OnMissionStarted?.Invoke();
+        }
         public void CallOnMissionCompleted() => OnMissionCompleted?.Invoke();
     }
 }
