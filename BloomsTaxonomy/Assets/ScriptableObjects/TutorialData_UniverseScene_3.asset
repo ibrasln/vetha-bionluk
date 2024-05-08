@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Steps:
   - EkoBotSprite: {fileID: -586182886, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
-    Instruction: "Bakal\u0131m Poseidon\r gezegeninde\r bizi neler bekliyor!!"
+    Instruction: "Bakal\u0131m Poseidon gezegeninde bizi neler bekliyor!!"
     PanelState: 1

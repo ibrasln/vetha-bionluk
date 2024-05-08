@@ -43,14 +43,12 @@ namespace UI.Scenes
             
             StartCoroutine(PlayTutorialStepRoutine());
         }
+
+        public void StopTutorial() => StartCoroutine(StopTutorialRoutine());
         
         protected IEnumerator StopTutorialRoutine()
         {
             _currentTutorialPanel.Close();
-            
-            yield return new WaitForSeconds(1f);
-            
-            ekoBotImage.gameObject.SetActive(false);
             
             if (CurrentTutorialIndex >= Tutorials.Length)
             {
@@ -60,6 +58,10 @@ namespace UI.Scenes
             {
                 CurrentTutorialIndex++;
             }
+            
+            yield return new WaitForSeconds(1f);
+            
+            ekoBotImage.gameObject.SetActive(false);
             
             OnTutorialStopped?.Invoke();
             

@@ -1,3 +1,4 @@
+using UnityEngine;
 using Utilities;
 
 namespace Manager
@@ -12,5 +13,10 @@ namespace Manager
         }
 
         public void SetPlayerName(string playerName) => PlayerName = playerName;
+
+        public void Quit()
+        {
+            if (Application.isPlaying) Application.Quit();
+        }
     }
 }

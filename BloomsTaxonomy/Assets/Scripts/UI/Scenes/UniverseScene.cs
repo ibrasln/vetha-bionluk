@@ -57,7 +57,7 @@ namespace UI.Scenes
             
             yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
             
-            yield return new WaitForSeconds(.5f);            
+            yield return new WaitForSeconds(.5f);
         }
     }
 }
