@@ -2,7 +2,6 @@ using System.Collections;
 using UI;
 using UI.Scenes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Mission
 {
@@ -10,50 +9,29 @@ namespace Mission
     {
         private PlanetScene _planetScene;
 
-        [SerializeField] private ReportInputField[] reportAnswers;
-
-        [SerializeField] private Sprite correctSprite;
-        [SerializeField] private Sprite wrongSprite;
+        public bool IsCompleted;
         
-        //TODO: Hold blanks.
-        //TODO: Check the blanks.
+        [SerializeField] protected Sprite correctSprite;
+        [SerializeField] protected Sprite wrongSprite;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _planetScene = GetComponentInParent<PlanetScene>();
-            reportAnswers = GetComponentsInChildren<ReportInputField>();
         }
 
         public void OnReportCompleted()
         {
-            if (CheckAnswers()) StartCoroutine(OnReportCompletedRoutine());
+            CheckAnswers();
+            if (IsCompleted) StartCoroutine(OnReportCompletedRoutine());
         }
 
-        private bool CheckAnswers()
-        {
-            bool allTrue = true;
-            
-            foreach (ReportInputField reportAnswer in reportAnswers)
-            {
-                if (reportAnswer.CheckAnswer())
-                {
-                    reportAnswer.SetCorrectnessImage(correctSprite, Color.green);
-                }
-                else
-                {
-                    reportAnswer.SetCorrectnessImage(wrongSprite, Color.red);
-                    allTrue = false;
-                }
-            }
-            
-            return allTrue;
-        }
+        protected virtual void CheckAnswers() { }
         
         private IEnumerator OnReportCompletedRoutine()
         {
             Close();
             
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             
             _planetScene.SetMission();
         }

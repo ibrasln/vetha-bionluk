@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Mission
 {
-    public class ReportInputField : MonoBehaviour
+    public class ReportAnswerInputField : MonoBehaviour
     {
         [SerializeField] private string answer;
         [SerializeField] private Image correctnessImage;

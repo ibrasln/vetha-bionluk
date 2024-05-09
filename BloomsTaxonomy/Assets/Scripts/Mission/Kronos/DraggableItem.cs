@@ -9,20 +9,17 @@ namespace Mission.Kronos
         
         public void OnBeginDrag(PointerEventData eventData)
         {
-            Debug.Log("OnBeginDrag");
             _oldPosition = transform.position;
             image.raycastTarget = false;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            Debug.Log("OnDrag");
             transform.position = Input.mousePosition;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            Debug.Log("OnEndDrag");
             image.raycastTarget = true;
         }
 

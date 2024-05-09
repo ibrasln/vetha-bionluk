@@ -14,12 +14,12 @@ namespace Mission.Kronos
         private void Start()
         {
             SetDraggableItems(false);
-            OnMissionCompleted += Report.Open;
+            OnMissionCompleted += report.Open;
         }
 
         private void OnDestroy()
         {
-            OnMissionCompleted -= Report.Open;
+            OnMissionCompleted -= report.Open;
         }
 
         public void SetDraggableItems(bool state)

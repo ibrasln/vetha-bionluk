@@ -9,7 +9,7 @@ namespace Mission
         public Action OnMissionStarted;
         public Action OnMissionCompleted;
 
-        public Report Report;
+        public Report report;
         
         public void CallOnMissionStarted()
         {

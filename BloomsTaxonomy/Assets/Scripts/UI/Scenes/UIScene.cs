@@ -96,7 +96,7 @@ namespace UI.Scenes
             
             string newText = SetText(text);
 
-            float timeBetweenCharacters = .01f;
+            float timeBetweenCharacters = .045f;
 
             while (currentCharacterIndex < newText.Length)
             {

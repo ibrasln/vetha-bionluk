@@ -1,16 +1,19 @@
 using System;
 using System.Collections;
-using Manager;
+using Mission.Kronos;
 using Tutorial;
 using UnityEngine;
 
 namespace UI.Scenes
 {
-    public class AresScene : PlanetScene
+    public class PoseidonScene : PlanetScene
     {
         public override void StartMission()
         {
-            currentMission.Open();
+            base.StartMission();
+            
+            // KronosMission kronosMission = currentMission as KronosMission;
+            // if (kronosMission != null) kronosMission.SetDraggableItems(true);
         }
 
         protected override IEnumerator SkipStepRoutine()
@@ -29,22 +32,11 @@ namespace UI.Scenes
             if (_currentStepIndex >= _currentTutorial.Steps.Length)
             {
                 yield return StartCoroutine(StopTutorialRoutine());
+                Debug.Log("Start mission after tutorial");
+
+                yield return new WaitForSeconds(.75f);
+                //TODO: Start mission.
                 
-                if (_currentTutorial == Tutorials[0] || _currentTutorial == Tutorials[2])
-                {
-                    Debug.Log("Start mission after tutorial");
-                    StartMission();
-                }
-                else if (_currentTutorial == Tutorials[1])
-                {
-                    yield return new WaitForSeconds(.75f);
-                    currentMission.report.Open();
-                }
-                else if (_currentTutorial == Tutorials[3])
-                {
-                    SetIsCompleted(true);
-                    TransitionManager.Instance.ChangeScene(UIObjects.Instance.UniverseScene);
-                }
                 yield break;
             }
 
@@ -70,13 +62,15 @@ namespace UI.Scenes
             
             SetTutorialComponents();
             
+            //TODO: Set Mission
+            // if(_currentStepIndex == 4) SetMission();
+            
             _instructionText.text = string.Empty;
             
             _currentTutorialPanel.Open();
             
             yield return new WaitForSeconds(.75f);
             
-            if (_currentTutorial == Tutorials[0] && _currentStepIndex == 1) SetMission();
             
             yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
             
