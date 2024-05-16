@@ -1,27 +1,30 @@
 using System;
 using System.Collections;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace UI.Scenes
 {
     public class PlanetScene : UIScene
     {
+        [Space(7)] [Header("PLANET PROPERTIES")]
         public bool IsCompleted;
-        
         [SerializeField] private Mission.Mission[] missions;
         
+        [ReadOnly] public Mission.Mission CurrentMission;
         protected int currentMissionIndex;
-        protected Mission.Mission currentMission;
 
         public void SetIsCompleted(bool state) => IsCompleted = state;
         
         public virtual void StartMission(){}
+        
         public void SetMission()
         {
-            if (currentMission != null) currentMission.Deactivate();
-            if (currentMissionIndex < missions.Length) currentMission = missions[currentMissionIndex];
+            if (CurrentMission != null) CurrentMission.Deactivate();
+            if (currentMissionIndex < missions.Length) CurrentMission = missions[currentMissionIndex];
             
-            currentMission.Activate();
+            CurrentMission.Activate();
             currentMissionIndex++;
         }
 

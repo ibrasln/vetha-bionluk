@@ -1,30 +1,29 @@
 using System;
 using System.Collections;
-using Interfaces;
 using Manager;
 using NaughtyAttributes;
 using TMPro;
 using Tutorial;
 using UnityEngine;
 using UnityEngine.UI;
-using IDisposable = Interfaces.IDisposable;
 
 namespace UI.Scenes
 {
-    public abstract class UIScene : UIObject, IInitializable, IDisposable
+    public abstract class UIScene : UIObject
     {
+        [Space(7)] [Header("TUTORIAL PROPERTIES")]
         public TutorialData[] Tutorials;
         public UIElement[] TutorialPanels;
         [ReadOnly] public int CurrentTutorialIndex;
-        
         [SerializeField] protected Image ekoBotImage;
-        protected TextMeshProUGUI _instructionText;
-        protected UIElement _continueButton;
+        
+        protected TextMeshProUGUI instructionText;
+        protected UIElement continueButton;
 
-        protected TutorialData _currentTutorial;
-        protected UIElement _currentTutorialPanel;
-        protected TutorialStep _currentStep;
-        protected int _currentStepIndex;
+        protected TutorialData currentTutorial;
+        protected UIElement currentTutorialPanel;
+        protected TutorialStep currentStep;
+        protected int currentStepIndex;
         
         public Action OnTutorialStarted;
         public Action OnTutorialStopped;
@@ -35,11 +34,11 @@ namespace UI.Scenes
         {
             if (Tutorials.Length <= 0) return;
 
-            _currentTutorial = Tutorials[index];
+            currentTutorial = Tutorials[index];
             
             OnTutorialStarted?.Invoke();
             
-            _currentStepIndex = 0;
+            currentStepIndex = 0;
             
             StartCoroutine(PlayTutorialStepRoutine());
         }
@@ -48,7 +47,7 @@ namespace UI.Scenes
         
         protected IEnumerator StopTutorialRoutine()
         {
-            _currentTutorialPanel.Close();
+            currentTutorialPanel.Close();
             
             if (CurrentTutorialIndex >= Tutorials.Length)
             {
@@ -78,38 +77,18 @@ namespace UI.Scenes
         
         protected void SetTutorialComponents()
         {
-            _currentTutorialPanel = _currentStep.PanelState switch
+            currentTutorialPanel = currentStep.PanelState switch
             {
                 PanelState.Middle => TutorialPanels[0],
                 PanelState.Upper => TutorialPanels[1],
                 _ => throw new ArgumentOutOfRangeException()
             };
             
-            _instructionText = _currentTutorialPanel.GetComponentInChildren<TextMeshProUGUI>();
-            _continueButton = _currentTutorialPanel.GetComponentInChildren<Button>().GetComponent<UIElement>();
-        }
-
-        #region TypeWriting
-        protected IEnumerator TypeWriterRoutine(string text)
-        {
-            int currentCharacterIndex = 0;
-            
-            string newText = SetText(text);
-
-            float timeBetweenCharacters = .045f;
-
-            while (currentCharacterIndex < newText.Length)
-            {
-                char currentCharacter = newText[currentCharacterIndex];
-                _instructionText.text += currentCharacter;
-
-                currentCharacterIndex++;
-
-                yield return new WaitForSeconds(timeBetweenCharacters);
-            }
+            instructionText = currentTutorialPanel.GetComponentInChildren<TextMeshProUGUI>();
+            continueButton = currentTutorialPanel.GetComponentInChildren<Button>().GetComponent<UIElement>();
         }
         
-        private string SetText(string text)
+        protected void SetText(string text)
         {
             // Replace the <playerName> with player name. 
             string[] words = text.Split(' ');
@@ -125,24 +104,10 @@ namespace UI.Scenes
             string newText = string.Join(" ", words);
             
             // Set the size of the text
-            _instructionText.enableAutoSizing = true;
-            _instructionText.text = newText;
-            _instructionText.ForceMeshUpdate();
-            _instructionText.enableAutoSizing = false;
-            _instructionText.text = string.Empty;
-
-            return newText;
-        }
-        #endregion
-        
-        public void Initialize()
-        {
-            
-        }
-
-        public void Dispose()
-        {
-            
+            instructionText.enableAutoSizing = true;
+            instructionText.text = newText;
+            instructionText.ForceMeshUpdate();
+            instructionText.enableAutoSizing = false;
         }
     }
 }

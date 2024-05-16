@@ -8,43 +8,44 @@ namespace UI.Scenes
     {
         [SerializeField] private UIElement notebook;
         [SerializeField] private UIElement reportNotes;
+        [SerializeField] private UIElement infoButton;
         [SerializeField] private UIElement quitButton;
         
         
         protected override IEnumerator SkipStepRoutine()
         {
-            _continueButton.Close();
+            continueButton.Close();
 
             yield return new WaitForSeconds(1f);
             
-            _currentStepIndex++;
+            currentStepIndex++;
             OnSkippedStep?.Invoke();
             StartCoroutine(PlayTutorialStepRoutine());
         }
 
         protected override IEnumerator PlayTutorialStepRoutine()
         {
-            if (_currentStepIndex >= _currentTutorial.Steps.Length)
+            if (currentStepIndex >= currentTutorial.Steps.Length)
             {
                 yield return StartCoroutine(StopTutorialRoutine());
                 TransitionManager.Instance.ChangeScene(UIObjects.Instance.UniverseScene);
                 yield break;
             }
 
-            _currentStep = _currentTutorial.Steps[_currentStepIndex];
+            currentStep = currentTutorial.Steps[currentStepIndex];
             
             ekoBotImage.gameObject.SetActive(true);
-            ekoBotImage.sprite = _currentStep.EkoBotSprite;
+            ekoBotImage.sprite = currentStep.EkoBotSprite;
             
             SetTutorialComponents();
             
-            _instructionText.text = string.Empty;
+            instructionText.text = string.Empty;
             
-            _currentTutorialPanel.Open();
+            currentTutorialPanel.Open();
 
             yield return new WaitForSeconds(1f);
             
-            switch (_currentStepIndex)
+            switch (currentStepIndex)
             {
                 case 0:
                     yield return StartCoroutine(OpenStepRoutine(notebook));
@@ -53,15 +54,18 @@ namespace UI.Scenes
                     yield return StartCoroutine(OpenStepRoutine(reportNotes));
                     break;
                 case 2:
+                    yield return StartCoroutine(OpenStepRoutine(infoButton));
+                    break;
+                case 3:
                     yield return StartCoroutine(OpenStepRoutine(quitButton));
                     break;
             }
             
-            yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
+            SetText(currentStep.Instruction);
             
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.75f);
 
-            switch (_currentStepIndex)
+            switch (currentStepIndex)
             {
                 case 0:
                     yield return StartCoroutine(CloseStepRoutine(notebook));
@@ -72,11 +76,15 @@ namespace UI.Scenes
                     yield return ShowWindow(UIObjects.Instance.ReportNotesWindow);
                     break;
                 case 2:
+                    yield return StartCoroutine(CloseStepRoutine(infoButton));
+                    yield return ShowWindow(UIObjects.Instance.InfoWindow);
+                    break;
+                case 3:
                     yield return StartCoroutine(CloseStepRoutine(quitButton));
                     break;
             }
             
-            _continueButton.Open();
+            continueButton.Open();
             
         }
 

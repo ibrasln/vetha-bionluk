@@ -16,5 +16,6 @@ namespace UI.Scenes
         public UIWindow GeneralWindow;
         public UIWindow NotebookWindow;
         public UIWindow ReportNotesWindow;
+        public UIWindow InfoWindow;
     }
 }

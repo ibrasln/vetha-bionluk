@@ -10,37 +10,37 @@ namespace UI.Scenes
     {
         public override void StartMission()
         {
-            currentMission.Open();
+            CurrentMission.Open();
         }
 
         protected override IEnumerator SkipStepRoutine()
         {
-            _continueButton.Close();
+            continueButton.Close();
 
             yield return new WaitForSeconds(1f);
             
-            _currentStepIndex++;
+            currentStepIndex++;
             OnSkippedStep?.Invoke();
             StartCoroutine(PlayTutorialStepRoutine());
         }
         
         protected override IEnumerator PlayTutorialStepRoutine()
         {
-            if (_currentStepIndex >= _currentTutorial.Steps.Length)
+            if (currentStepIndex >= currentTutorial.Steps.Length)
             {
                 yield return StartCoroutine(StopTutorialRoutine());
                 
-                if (_currentTutorial == Tutorials[0] || _currentTutorial == Tutorials[2])
+                if (currentTutorial == Tutorials[0] || currentTutorial == Tutorials[2])
                 {
                     Debug.Log("Start mission after tutorial");
                     StartMission();
                 }
-                else if (_currentTutorial == Tutorials[1])
+                else if (currentTutorial == Tutorials[1])
                 {
                     yield return new WaitForSeconds(.75f);
-                    currentMission.report.Open();
+                    CurrentMission.Report.Open();
                 }
-                else if (_currentTutorial == Tutorials[3])
+                else if (currentTutorial == Tutorials[3])
                 {
                     SetIsCompleted(true);
                     TransitionManager.Instance.ChangeScene(UIObjects.Instance.UniverseScene);
@@ -48,21 +48,21 @@ namespace UI.Scenes
                 yield break;
             }
 
-            _currentStep = _currentTutorial.Steps[_currentStepIndex];
-            TutorialStep previousStep = _currentStep;
+            currentStep = currentTutorial.Steps[currentStepIndex];
+            TutorialStep previousStep = currentStep;
             
-            if (_currentStepIndex > 0) previousStep = _currentTutorial.Steps[_currentStepIndex - 1];
+            if (currentStepIndex > 0) previousStep = currentTutorial.Steps[currentStepIndex - 1];
             
-            if (_currentStep.PanelState != previousStep.PanelState) _currentTutorialPanel.Close();
+            if (currentStep.PanelState != previousStep.PanelState) currentTutorialPanel.Close();
             
-            switch (_currentStep.PanelState)
+            switch (currentStep.PanelState)
             {
                 case PanelState.Upper:
                     ekoBotImage.gameObject.SetActive(false);
                     break;
                 case PanelState.Middle:
                     ekoBotImage.gameObject.SetActive(true);
-                    ekoBotImage.sprite = _currentStep.EkoBotSprite;
+                    ekoBotImage.sprite = currentStep.EkoBotSprite;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -70,19 +70,17 @@ namespace UI.Scenes
             
             SetTutorialComponents();
             
-            _instructionText.text = string.Empty;
+            instructionText.text = string.Empty;
             
-            _currentTutorialPanel.Open();
+            currentTutorialPanel.Open();
+            
+            if (currentTutorial == Tutorials[0] && currentStepIndex == 1) SetMission();
+            
+            SetText(currentStep.Instruction);
             
             yield return new WaitForSeconds(.75f);
             
-            if (_currentTutorial == Tutorials[0] && _currentStepIndex == 1) SetMission();
-            
-            yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
-            
-            yield return new WaitForSeconds(.5f);
-            
-            _continueButton.Open();
+            continueButton.Open();
         }
     }
 }

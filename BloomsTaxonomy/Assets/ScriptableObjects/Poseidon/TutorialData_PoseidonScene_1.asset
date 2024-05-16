@@ -30,6 +30,6 @@ MonoBehaviour:
       de bunlar\u0131 not alman gerekecek."
     PanelState: 0
   - EkoBotSprite: {fileID: 0}
-    Instruction: "\u0130lk canl\u0131 geldi. \u015Eimdi makinay\u0131 kullan ve i\u015Flemlere
-      devam et."
+    Instruction: "\u015Eimdi s\u0131ras\u0131yla canl\u0131lar gelecek. Makineyi
+      kullan ve onlar\u0131 yerine yerle\u015Ftir <playerName>."
     PanelState: 0

@@ -10,26 +10,24 @@ namespace UI.Scenes
     {
         public override void StartMission()
         {
-            base.StartMission();
-            
-            KronosMission kronosMission = currentMission as KronosMission;
+            KronosMission kronosMission = CurrentMission as KronosMission;
             if (kronosMission != null) kronosMission.SetDraggableItems(true);
         }
 
         protected override IEnumerator SkipStepRoutine()
         {
-            _continueButton.Close();
+            continueButton.Close();
 
             yield return new WaitForSeconds(1f);
             
-            _currentStepIndex++;
+            currentStepIndex++;
             OnSkippedStep?.Invoke();
             StartCoroutine(PlayTutorialStepRoutine());
         }
         
         protected override IEnumerator PlayTutorialStepRoutine()
         {
-            if (_currentStepIndex >= _currentTutorial.Steps.Length)
+            if (currentStepIndex >= currentTutorial.Steps.Length)
             {
                 yield return StartCoroutine(StopTutorialRoutine());
                 Debug.Log("Start mission after tutorial");
@@ -40,21 +38,21 @@ namespace UI.Scenes
                 yield break;
             }
 
-            _currentStep = _currentTutorial.Steps[_currentStepIndex];
-            TutorialStep previousStep = _currentStep;
+            currentStep = currentTutorial.Steps[currentStepIndex];
+            TutorialStep previousStep = currentStep;
             
-            if (_currentStepIndex > 0) previousStep = _currentTutorial.Steps[_currentStepIndex - 1];
+            if (currentStepIndex > 0) previousStep = currentTutorial.Steps[currentStepIndex - 1];
             
-            if (_currentStep.PanelState != previousStep.PanelState) _currentTutorialPanel.Close();
+            if (currentStep.PanelState != previousStep.PanelState) currentTutorialPanel.Close();
             
-            switch (_currentStep.PanelState)
+            switch (currentStep.PanelState)
             {
                 case PanelState.Upper:
                     ekoBotImage.gameObject.SetActive(false);
                     break;
                 case PanelState.Middle:
                     ekoBotImage.gameObject.SetActive(true);
-                    ekoBotImage.sprite = _currentStep.EkoBotSprite;
+                    ekoBotImage.sprite = currentStep.EkoBotSprite;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -62,19 +60,17 @@ namespace UI.Scenes
             
             SetTutorialComponents();
             
-            _instructionText.text = string.Empty;
+            instructionText.text = string.Empty;
             
-            _currentTutorialPanel.Open();
+            currentTutorialPanel.Open();
+            
+            if(currentStepIndex == 3) SetMission();
+            
+            SetText(currentStep.Instruction);
             
             yield return new WaitForSeconds(.75f);
             
-            if(_currentStepIndex == 3) SetMission();
-            
-            yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
-            
-            yield return new WaitForSeconds(.5f);
-            
-            _continueButton.Open();
+            continueButton.Open();
         }
     }
 }

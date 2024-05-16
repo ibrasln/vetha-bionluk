@@ -14,16 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Steps:
   - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
-    Instruction: "Not defteri. Bu her zaman sol alt k\xF6\u015Fede senin i\xE7in
-      haz\u0131r bekliyor olacak."
+    Instruction: "Not defteri. Bu butona bas\u0131nca not alabilece\u011Fin defterini
+      a\xE7abilirsin. Bu her zaman sol alt k\xF6\u015Fede senin i\xE7in haz\u0131r
+      bekliyor olacak."
     PanelState: 0
   - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
-    Instruction: "Rapor notlar\u0131. Bu her zaman sol alt k\xF6\u015Fede senin i\xE7in
-      haz\u0131r bekliyor olacak."
-    PanelState: 0
-  - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
-    Instruction: "\xC7\u0131k\u0131\u015F butonu. Bu her zaman sa\u011F alt k\xF6\u015Fede
+    Instruction: "Rapor notlar\u0131. Bu butona bas\u0131nca tamamlad\u0131\u011F\u0131n
+      raporlara her zaman ula\u015Fabilirsin. Bu her zaman sol alt k\xF6\u015Fede
       senin i\xE7in haz\u0131r bekliyor olacak."
+    PanelState: 0
+  - EkoBotSprite: {fileID: 1883886435, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
+    Instruction: "Bilgi butonu. Bu butona bas\u0131nca g\xF6revler i\xE7in y\xF6nergeleri
+      bulabilirsin. Bu her zaman sa\u011F \xFCst k\xF6\u015Fede senin i\xE7in haz\u0131r
+      bekliyor olacak."
+    PanelState: 0
+  - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
+    Instruction: "\xC7\u0131k\u0131\u015F butonu. Bu butona basarak istedi\u011Fin
+      zaman \xE7\u0131kabilirsin. Bu her zaman sa\u011F alt k\xF6\u015Fede senin
+      i\xE7in haz\u0131r bekliyor olacak."
     PanelState: 0
   - EkoBotSprite: {fileID: 1883886435, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "Malzemeleri ald\u0131n, \u015Fimdi g\xF6reve gitme zaman\u0131

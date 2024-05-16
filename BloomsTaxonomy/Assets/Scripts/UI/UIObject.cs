@@ -6,9 +6,9 @@ namespace UI
 {
     public class UIObject : MonoBehaviour, IActivatable
     {
+        [Space(5)] [Header("ANIMATION PROPERTIES")]
         public AnimationSequencerController OpenAnimation;
         public AnimationSequencerController CloseAnimation;
-
         public bool IsOpened;
         public bool IsClosed;
 
@@ -17,6 +17,7 @@ namespace UI
             if (IsOpened) return;
             
             OpenAnimation.Play();
+            Debug.Log(name + " is opened!");
         }
         
         public void Close()

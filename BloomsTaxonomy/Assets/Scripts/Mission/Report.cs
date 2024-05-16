@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UI;
 using UI.Scenes;
 using UnityEngine;
@@ -9,11 +10,19 @@ namespace Mission
     {
         private PlanetScene _planetScene;
 
-        public bool IsCompleted;
+        protected bool isCompleted;
         
+        [Space(5)] [Header("REPORT PROPERTIES")]
         [SerializeField] protected Sprite correctSprite;
         [SerializeField] protected Sprite wrongSprite;
 
+        [Space(5)]
+        [Header("FEEDBACK PANEL PROPERTIES")]
+        [SerializeField] protected UIElement feedbackPanel;
+        [SerializeField] protected TextMeshProUGUI feedbackText;
+        [SerializeField] protected Sprite correctFeedbackPanelSprite;
+        [SerializeField] protected Sprite wrongFeedbackPanelSprite;
+        
         protected virtual void Awake()
         {
             _planetScene = GetComponentInParent<PlanetScene>();
@@ -21,11 +30,21 @@ namespace Mission
 
         public void OnReportCompleted()
         {
-            CheckAnswers();
-            if (IsCompleted) StartCoroutine(OnReportCompletedRoutine());
+            if (isCompleted) StartCoroutine(OnReportCompletedRoutine());
+            else ClosePanel();
         }
 
-        protected virtual void CheckAnswers() { }
+        public virtual void CheckAnswers() { }
+
+        public virtual void OpenPanel()
+        {
+            feedbackPanel.Open();
+        }
+
+        private void ClosePanel()
+        {
+            feedbackPanel.Close();
+        }
         
         private IEnumerator OnReportCompletedRoutine()
         {

@@ -15,8 +15,8 @@
 //         public TutorialData CurrentTutorial;
 //         public TutorialPanel CurrentTutorialPanel;
 //         
-//         private TutorialStep _currentStep;
-//         private int _currentStepIndex;
+//         private TutorialStep currentStep;
+//         private int currentStepIndex;
 //         
 //         public Action OnTutorialStarted;
 //         public Action OnTutorialStopped;
@@ -89,15 +89,15 @@
 //         private void SetCurrentTutorial(UIScene scene)
 //         {
 //             CurrentTutorial = scene.Tutorial;
-//             _currentStep = CurrentTutorial.Steps[_currentStepIndex];
+//             currentStep = CurrentTutorial.Steps[currentStepIndex];
 //         }
 //
 //         private void SetTutorialPanel(UIScene scene)
 //         {
 //             CurrentTutorialPanel = scene.TutorialPanel;
 //             _ekoBotImage = scene.EkoBotImage;
-//             _instructionText = CurrentTutorialPanel.GetComponentInChildren<TextMeshProUGUI>();
-//             _continueButton = CurrentTutorialPanel.GetComponentInChildren<Button>().GetComponent<RectTransform>();
+//             instructionText = CurrentTutorialPanel.GetComponentInChildren<TextMeshProUGUI>();
+//             continueButton = CurrentTutorialPanel.GetComponentInChildren<Button>().GetComponent<RectTransform>();
 //         }
 //
 //         #region Skip Step
@@ -108,11 +108,11 @@
 //
 //         private IEnumerator SkipStepRoutine()
 //         {
-//             _continueButton.DOScale(0, .5f).SetEase(Ease.InBack);
+//             continueButton.DOScale(0, .5f).SetEase(Ease.InBack);
 //             
 //             yield return new WaitForSeconds(.75f);
 //             
-//             _currentStepIndex++;
+//             currentStepIndex++;
 //             PlayTutorialStep();
 //         }
 //         #endregion
@@ -125,22 +125,22 @@
 //
 //         private IEnumerator PlayTutorialStepRoutine()
 //         {
-//             if (_currentStepIndex >= CurrentTutorial.Steps.Length)
+//             if (currentStepIndex >= CurrentTutorial.Steps.Length)
 //             {
 //                 StopTutorial();
 //                 yield break;
 //             }
 //             
-//             _currentStep = CurrentTutorial.Steps[_currentStepIndex];
+//             currentStep = CurrentTutorial.Steps[currentStepIndex];
 //             OnSkippedStep?.Invoke();
 //
-//             _ekoBotImage.sprite = _currentStep.EkoBotSprite;
+//             _ekoBotImage.sprite = currentStep.EkoBotSprite;
 //             
-//             yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
+//             yield return StartCoroutine(TypeWriterRoutine(currentStep.Instruction));
 //             
 //             yield return new WaitForSeconds(.5f);
 //
-//             _continueButton.DOScale(1, .5f).SetEase(Ease.OutBack);
+//             continueButton.DOScale(1, .5f).SetEase(Ease.OutBack);
 //         }
 //         #endregion
 //     }

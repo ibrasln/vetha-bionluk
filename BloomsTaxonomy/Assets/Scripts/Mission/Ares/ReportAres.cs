@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Mission
 {
     public class ReportAres : Report
     {
+        [Space(10)]
         [SerializeField] private ReportAnswerInputField[] reportAnswers;
 
         protected override void Awake()
@@ -12,9 +14,9 @@ namespace Mission
             reportAnswers = GetComponentsInChildren<ReportAnswerInputField>();
         }
 
-        protected override void CheckAnswers()
+        public override void CheckAnswers()
         {
-            IsCompleted = true;
+            isCompleted = true;
             foreach (ReportAnswerInputField reportAnswer in reportAnswers)
             {
                 if (reportAnswer.CheckAnswer())
@@ -24,8 +26,23 @@ namespace Mission
                 else
                 {
                     reportAnswer.SetCorrectnessImage(wrongSprite, Color.red);
-                    IsCompleted = false;
+                    isCompleted = false;
                 }
+            }
+        }
+
+        public override void OpenPanel()
+        {
+            base.OpenPanel();
+            if (isCompleted)
+            {
+                feedbackPanel.GetComponent<Image>().sprite = correctFeedbackPanelSprite;
+                feedbackText.text = "Tebrikler! Bütün boşlukları doğru tamamladın.";
+            }
+            else
+            {
+                feedbackPanel.GetComponent<Image>().sprite = wrongFeedbackPanelSprite;
+                feedbackText.text = "Boşlukları doğru tamamlayamadın, tekrar dene!";
             }
         }
     }

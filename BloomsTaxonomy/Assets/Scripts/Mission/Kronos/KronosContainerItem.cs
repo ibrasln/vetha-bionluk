@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using DG.Tweening;
+using DragDrop;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Mission.Kronos
 {
-    public class ContainerItem : KronosObject, IDropHandler
+    public class KronosContainerItem : KronosObject, IDropHandler
     {
         private KronosMission _kronosMission;
 
@@ -19,19 +20,18 @@ namespace Mission.Kronos
         public void OnDrop(PointerEventData eventData)
         {
             GameObject dropped = eventData.pointerDrag;
+
+            if (!dropped.TryGetComponent(out DraggableItem draggableItem)) return;
             
-            if (dropped.TryGetComponent(out DraggableItem draggableItem))
+            if (draggableItem.ObjectId == ObjectId)
             {
-                if (draggableItem.ObjectId == ObjectId)
-                {
-                    Debug.Log("Matched!");
-                    OnCorrect(draggableItem);
-                }
-                else
-                {
-                    Debug.Log("Wrong match!");
-                    OnWrong(draggableItem);
-                }
+                Debug.Log("Matched!");
+                OnCorrect(draggableItem);
+            }
+            else
+            {
+                Debug.Log("Wrong match!");
+                OnWrong(draggableItem);
             }
         }
 
@@ -47,6 +47,7 @@ namespace Mission.Kronos
             _kronosMission.IncreaseCorrectMatches();
             
             if (_kronosMission.CorrectMatches >= 8) _kronosMission.CallOnMissionCompleted();
+            else _kronosMission.OpenPanel(true);
             
             enabled = false;
         }
@@ -54,6 +55,7 @@ namespace Mission.Kronos
         private void OnWrong(DraggableItem draggableItem)
         {
             StartCoroutine(OnWrongRoutine(draggableItem));
+            _kronosMission.OpenPanel(false);
         }
         
         private IEnumerator OnWrongRoutine(DraggableItem draggableItem)

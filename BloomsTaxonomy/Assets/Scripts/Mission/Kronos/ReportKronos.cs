@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Mission
 {
     public class ReportKronos : Report
     {
+        [Space(10)]
         [SerializeField] private ReportAnswerButton[] answerButtons;
 
         protected override void Awake()
@@ -12,9 +14,9 @@ namespace Mission
             answerButtons = GetComponentsInChildren<ReportAnswerButton>();
         }
 
-        protected override void CheckAnswers()
+        public override void CheckAnswers()
         {
-            IsCompleted = true;
+            isCompleted = true;
             
             foreach (ReportAnswerButton reportAnswer in answerButtons)
             {
@@ -25,12 +27,25 @@ namespace Mission
                 else
                 {
                     reportAnswer.SetCorrectnessImage(wrongSprite, Color.red);
-                    IsCompleted = false;
+                    isCompleted = false;
                 }
                 
                 reportAnswer.SetButtonInteractables(true);
-                
-                Debug.Log("IsCompleted: " + IsCompleted);
+            }
+        }
+        
+        public override void OpenPanel()
+        {
+            base.OpenPanel();
+            if (isCompleted)
+            {
+                feedbackPanel.GetComponent<Image>().sprite = correctFeedbackPanelSprite;
+                feedbackText.text = "Canlılar arasındaki bu mantıksal olayı başarıyla değerlendirdin, tebrikler!";
+            }
+            else
+            {
+                feedbackPanel.GetComponent<Image>().sprite = wrongFeedbackPanelSprite;
+                feedbackText.text = "Boşlukları doğru tamamlayamadın, tekrar dene!";
             }
         }
     }

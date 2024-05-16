@@ -19,29 +19,29 @@ namespace UI.Scenes
         {
             yield return new WaitForSeconds(1f);
             
-            _currentStepIndex++;
+            currentStepIndex++;
             OnSkippedStep?.Invoke();
             StartCoroutine(PlayTutorialStepRoutine());
         }
 
         protected override IEnumerator PlayTutorialStepRoutine()
         {
-            if (_currentStepIndex >= _currentTutorial.Steps.Length)
+            if (currentStepIndex >= currentTutorial.Steps.Length)
             {
                 yield return StartCoroutine(StopTutorialRoutine());
                 yield break;
             }
 
-            _currentStep = _currentTutorial.Steps[_currentStepIndex];
+            currentStep = currentTutorial.Steps[currentStepIndex];
             
-            switch (_currentStep.PanelState)
+            switch (currentStep.PanelState)
             {
                 case PanelState.Upper:
                     ekoBotImage.gameObject.SetActive(false);
                     break;
                 case PanelState.Middle:
                     ekoBotImage.gameObject.SetActive(true);
-                    ekoBotImage.sprite = _currentStep.EkoBotSprite;
+                    ekoBotImage.sprite = currentStep.EkoBotSprite;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -49,15 +49,13 @@ namespace UI.Scenes
             
             SetTutorialComponents();
             
-            _instructionText.text = string.Empty;
+            instructionText.text = string.Empty;
             
-            _currentTutorialPanel.Open();
+            currentTutorialPanel.Open();
 
+            SetText(currentStep.Instruction);
+            
             yield return new WaitForSeconds(.75f);
-            
-            yield return StartCoroutine(TypeWriterRoutine(_currentStep.Instruction));
-            
-            yield return new WaitForSeconds(.5f);
         }
     }
 }
