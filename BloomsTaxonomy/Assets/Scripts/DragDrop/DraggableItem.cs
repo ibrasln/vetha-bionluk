@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace DragDrop
@@ -6,13 +8,22 @@ namespace DragDrop
     public class DraggableItem : DragDropItem, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         public bool IsContained;
-        
+        public ContainerItem LastDroppedContainer;
+
+        private Vector3 _firstPosition;
         private Vector3 _oldPosition;
-        private ContainerItem _lastDroppedContainer;
-        
+
+        public UnityEvent OnContained;
+        public UnityEvent OnContainFailed;
+
+        private void Start()
+        {
+            _firstPosition = transform.position;
+        }
+
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _lastDroppedContainer = null;
+            LastDroppedContainer = null;
             _oldPosition = transform.position;
             image.raycastTarget = false;
         }
@@ -25,11 +36,20 @@ namespace DragDrop
         public void OnEndDrag(PointerEventData eventData)
         {
             image.raycastTarget = true;
-            if (_lastDroppedContainer is null) ReturnOldPosition();
+            if (LastDroppedContainer is null) ReturnOldPosition();
         }
 
         public void ReturnOldPosition() => transform.position = _oldPosition;
+        public void ReturnFirstPosition() => transform.position = _firstPosition;
         
-        public void SetDroppedContainer(ContainerItem container) => _lastDroppedContainer = container;
+        public void SetDroppedContainer(ContainerItem container) => LastDroppedContainer = container;
+
+        public void SetIsContained(bool state)
+        {
+            IsContained = state;
+            
+            if (state) OnContained?.Invoke();
+            else OnContainFailed?.Invoke();
+        }
     }
 }

@@ -31,11 +31,11 @@ namespace DragDrop
 
         private void OnCorrect(DraggableItem draggableItem)
         {
-            draggableItem.transform.SetParent(transform);
+            draggableItem.transform.SetParent(transform); // TODO: Add this to UnityEvent of DraggableItem
             draggableItem.transform.position = transform.position;
           
-            draggableItem.enabled = false;
-            draggableItem.IsContained = true;
+            // draggableItem.enabled = false; // TODO: Add this to UnityEvent of DraggableItem
+            draggableItem.SetIsContained(true);
             
             enabled = false;
             

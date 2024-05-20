@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2984023309680863834, guid: d5fe054fcc005dc49919f97a65885397, type: 3}
+      propertyPath: m_fontSize
+      value: 34.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5767732578913111655, guid: d5fe054fcc005dc49919f97a65885397, type: 3}
       propertyPath: m_Name
       value: Poseidon_Mission
@@ -146,7 +150,7 @@ MonoBehaviour:
   CloseAnimation: {fileID: 0}
   IsOpened: 0
   IsClosed: 0
-  report: {fileID: 0}
+  Report: {fileID: 3007212201303649869}
 --- !u!1 &8082854230201520693 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5077225848233687425, guid: d5fe054fcc005dc49919f97a65885397, type: 3}

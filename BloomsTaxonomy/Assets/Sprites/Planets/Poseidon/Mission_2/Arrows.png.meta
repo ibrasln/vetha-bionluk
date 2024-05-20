@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1f03035d3e02ca844af5b987b5e1aeb4
+guid: af32af83f4dfc854b8e84979e8f22016
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,6 +107,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -145,102 +158,89 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kronos
+      name: Arrows_0
       rect:
         serializedVersion: 2
-        x: 435
-        y: 391
-        width: 247
-        height: 247
+        x: 0
+        y: 681
+        width: 627
+        height: 202
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f73ed1348b727b4ab2ec60f65b3b618
-      internalID: 1776312900
+      spriteID: b35fad35311c260438f3aa97bc167252
+      internalID: -761147464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poseidon
+      name: Arrows_1
       rect:
         serializedVersion: 2
-        x: 934
-        y: 527
-        width: 257
-        height: 257
+        x: 0
+        y: 440
+        width: 627
+        height: 202
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54b7606d649fd5a448e117299bf9beb8
-      internalID: 385575466
+      spriteID: 3bbb662d569cfe248a51ff0209e14ef8
+      internalID: -1876712982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Earth
+      name: Arrows_2
       rect:
         serializedVersion: 2
-        x: 1344
-        y: 609
-        width: 303
-        height: 302
+        x: 0
+        y: 223
+        width: 627
+        height: 202
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d54c084c527cd9e41b3e8da10633087a
-      internalID: -1806950183
+      spriteID: 12f3f4179bf882945b88f513b9719f77
+      internalID: 412402278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ares
+      name: Arrows_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 158
-        width: 251
-        height: 235
+        x: 0
+        y: 0
+        width: 627
+        height: 202
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f37988b9ee8e214499512582db26da2
-      internalID: 97347915
+      spriteID: a528e2178011cfa4586b8ecd09b45bf9
+      internalID: 83628411
       vertices: []
       indices: 
       edges: []
@@ -256,13 +256,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ares: 97347915
-      Earth: -1806950183
-      Kronos: 1776312900
-      Planets_3: -1739357653
-      Planets_4: -788622627
-      Planets_6: 2069892399
-      Poseidon: 385575466
+      Arrows_0: -761147464
+      Arrows_1: -1876712982
+      Arrows_2: 412402278
+      Arrows_3: 83628411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
