@@ -1,24 +1,25 @@
+using Mission.Report;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Mission
 {
-    public class ReportKronos : Report
+    public class ReportKronos : Report.Report
     {
         [Space(10)]
-        [SerializeField] private ReportAnswerButton[] answerButtons;
+        [SerializeField] private ReportAnswerButtonObject[] answerButtons;
 
         protected override void Awake()
         {
             base.Awake();
-            answerButtons = GetComponentsInChildren<ReportAnswerButton>();
+            answerButtons = GetComponentsInChildren<ReportAnswerButtonObject>();
         }
 
         public override void CheckAnswers()
         {
             isCompleted = true;
             
-            foreach (ReportAnswerButton reportAnswer in answerButtons)
+            foreach (ReportAnswerButtonObject reportAnswer in answerButtons)
             {
                 if (reportAnswer.IsCorrect)
                 {

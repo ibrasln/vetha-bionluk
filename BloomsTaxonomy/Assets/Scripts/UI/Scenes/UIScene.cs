@@ -5,6 +5,7 @@ using NaughtyAttributes;
 using TMPro;
 using Tutorial;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace UI.Scenes
@@ -25,9 +26,9 @@ namespace UI.Scenes
         protected TutorialStep currentStep;
         protected int currentStepIndex;
         
-        public Action OnTutorialStarted;
-        public Action OnTutorialStopped;
         public Action OnSkippedStep;
+        public UnityEvent OnTutorialStarted;
+        public UnityEvent OnTutorialStopped;
 
         #region Start & Stop Tutorial
         public void StartTutorial(int index)

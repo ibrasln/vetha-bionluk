@@ -17,6 +17,7 @@ namespace UI
             if (IsOpened) return;
             
             OpenAnimation.Play();
+            OnOpened();
             Debug.Log(name + " is opened!");
         }
         
@@ -25,6 +26,7 @@ namespace UI
             if (IsClosed) return;
             
             CloseAnimation.Play();
+            OnClosed();
         }
 
         public void OnOpened()

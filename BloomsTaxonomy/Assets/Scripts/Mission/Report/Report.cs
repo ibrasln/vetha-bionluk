@@ -4,7 +4,7 @@ using UI;
 using UI.Scenes;
 using UnityEngine;
 
-namespace Mission
+namespace Mission.Report
 {
     public class Report : UIElement
     {
@@ -30,7 +30,7 @@ namespace Mission
 
         public void OnReportCompleted()
         {
-            if (isCompleted) StartCoroutine(OnReportCompletedRoutine());
+            if (isCompleted) Close();
             else ClosePanel();
         }
 
@@ -44,15 +44,6 @@ namespace Mission
         private void ClosePanel()
         {
             feedbackPanel.Close();
-        }
-        
-        private IEnumerator OnReportCompletedRoutine()
-        {
-            Close();
-            
-            yield return new WaitForSeconds(1.5f);
-            
-            _planetScene.SetMission();
         }
     }
 }

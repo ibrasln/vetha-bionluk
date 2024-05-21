@@ -69,7 +69,7 @@ namespace UI.Scenes
                 
                 yield break;
             }
-
+            
             currentStep = currentTutorial.Steps[currentStepIndex];
             TutorialStep previousStep = currentStep;
             

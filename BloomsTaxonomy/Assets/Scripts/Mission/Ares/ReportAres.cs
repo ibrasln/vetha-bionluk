@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Mission
 {
-    public class ReportAres : Report
+    public class ReportAres : Report.Report
     {
         [Space(10)]
         [SerializeField] private ReportAnswerInputField[] reportAnswers;

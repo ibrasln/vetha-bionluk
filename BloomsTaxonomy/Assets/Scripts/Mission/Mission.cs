@@ -10,11 +10,11 @@ namespace Mission
         public Action OnMissionStarted;
         public Action OnMissionCompleted;
 
-        public Report Report;
+        public Report.Report Report;
 
         private void Awake()
         {
-            Report = transform.Find("Report").GetComponent<Report>();
+            Report = transform.Find("Report").GetComponent<Report.Report>();
         }
 
         public void CallOnMissionStarted()

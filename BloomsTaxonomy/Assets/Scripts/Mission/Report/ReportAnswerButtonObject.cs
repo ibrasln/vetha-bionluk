@@ -2,9 +2,9 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mission
+namespace Mission.Report
 {
-    public class ReportAnswerButton : MonoBehaviour
+    public class ReportAnswerButtonObject : MonoBehaviour
     {
         public bool IsCorrect;
         [SerializeField] private int correctAnswerIndex;
@@ -21,8 +21,6 @@ namespace Mission
         {
             IsCorrect = correctAnswerIndex == buttonIndex;
 
-            Debug.Log(IsCorrect);
-            
             int otherButtonIndex = buttonIndex == 0 ? 1 : 0;
             
             _buttons[buttonIndex].GetComponent<CanvasGroup>().DOFade(1f, .5f);
