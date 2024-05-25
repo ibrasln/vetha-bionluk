@@ -15,6 +15,11 @@ namespace Mission.Earth
         [ReadOnly] public Slider CurrentSlider;
         [SerializeField] private DropdownReport rabbitReport;
         [SerializeField] private DropdownReport owlReport;
+
+        [Space(7)] 
+        [SerializeField] private Transform owlParent;
+        [SerializeField] private Transform rabbitParent;
+        [SerializeField] private Transform grassParent;
         
         [Space(7)]
         /// <summary>
@@ -144,7 +149,7 @@ namespace Mission.Earth
                 elapsedTime += Time.deltaTime;
                 float t = Mathf.Clamp01(elapsedTime / animationDuration);
                 slider.value = Mathf.Lerp(startValue, value, t);
-
+                UpdateObjects(slider);
                 yield return null;
             }
 
@@ -159,11 +164,12 @@ namespace Mission.Earth
                 UpdateSliderValue(slider, 50);
             }
         }
-
         
         private void UpdateSliderValue(Slider slider, float value)
         {
             slider.value = value;
+            
+            UpdateObjects(slider);
         }
 
         private void SetCurrentSlider()
@@ -178,6 +184,45 @@ namespace Mission.Earth
             };
         }
 
+        private void ResetObjects(Transform parentObject)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                parentObject.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+        
+        private void UpdateObjects(Slider slider)
+        {
+            Transform parentObject = null;
+
+            if (slider == sliders[0]) parentObject = owlParent;
+            else if (slider == sliders[1]) parentObject = rabbitParent;
+            else if (slider == sliders[2]) parentObject = grassParent;
+            
+            int deactivatedObjectAmount = slider.value switch
+            {
+                <= 0 => 5,
+                <= 20 => 4,
+                <= 40 => 3,
+                <= 60 => 2,
+                <= 80 => 1,
+                <= 100 => 0,
+                _ => 1
+            };
+
+            for (int i = 0; i < parentObject.childCount; i++)
+            {
+                if (i < deactivatedObjectAmount)
+                {
+                    parentObject.GetChild(i).gameObject.SetActive(false);
+                    continue;
+                }
+                
+                parentObject.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+        
         public void SetMissionPhase(MissionPhase phase) => MissionPhase = phase;
     }
     
