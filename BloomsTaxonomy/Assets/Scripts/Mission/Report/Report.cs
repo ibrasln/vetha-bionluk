@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UI;
 using UI.Scenes;
@@ -15,7 +14,9 @@ namespace Mission.Report
         [Space(5)] [Header("REPORT PROPERTIES")]
         [SerializeField] protected Sprite correctSprite;
         [SerializeField] protected Sprite wrongSprite;
-
+        [SerializeField] protected string correctFeedbackText;
+        [SerializeField] protected string wrongFeedbackText;
+        
         [Space(5)]
         [Header("FEEDBACK PANEL PROPERTIES")]
         [SerializeField] protected UIElement feedbackPanel;

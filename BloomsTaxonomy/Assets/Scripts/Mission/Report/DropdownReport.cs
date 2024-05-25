@@ -32,12 +32,12 @@ namespace Mission.Report
             if (isCompleted)
             {
                 feedbackPanel.GetComponent<Image>().sprite = correctFeedbackPanelSprite;
-                feedbackText.text = "Tebrikler! Bütün soruları doğru cevapladın.";
+                feedbackText.text = correctFeedbackText;
             }
             else
             {
                 feedbackPanel.GetComponent<Image>().sprite = wrongFeedbackPanelSprite;
-                feedbackText.text = "Üzgünüm! Cevaplarını tekrar kontrol et.";
+                feedbackText.text = wrongFeedbackText;
             }
         }
     }

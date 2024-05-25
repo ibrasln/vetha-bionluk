@@ -26,12 +26,12 @@ namespace Mission.Report
             if (isCompleted)
             {
                 feedbackPanel.GetComponent<Image>().sprite = correctFeedbackPanelSprite;
-                feedbackText.text = "Harika, piramidin basamaklarını başarıyla tamamladın.";
+                feedbackText.text = correctFeedbackText;
             }
             else
             {
                 feedbackPanel.GetComponent<Image>().sprite = wrongFeedbackPanelSprite;
-                feedbackText.text = "Üzgünüm, bütün boşlukları doğru doldurmalısın. Tekrar dene!\n";
+                feedbackText.text = wrongFeedbackText;
             }
         }
     }
