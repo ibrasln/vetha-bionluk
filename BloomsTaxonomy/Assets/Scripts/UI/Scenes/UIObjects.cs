@@ -10,12 +10,13 @@ namespace UI.Scenes
         public FirstTutorialScene FirstTutorialScene;
         public SecondTutorialScene SecondTutorialScene;
         public UniverseScene UniverseScene;
+        public FinalScene finalScene;
 
         [Space(5)] [Header("WINDOWS")] 
         public UIWindow FadeScreenWindow;
         public UIWindow GeneralWindow;
         public UIWindow NotebookWindow;
-        public UIWindow ReportNotesWindow;
+        public ReportsPanelWindow ReportsPanelWindow;
         public UIWindow InfoWindow;
     }
 }

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace DragDrop
 {
@@ -15,7 +16,7 @@ namespace DragDrop
 
         public UnityEvent OnContained;
         public UnityEvent OnContainFailed;
-
+        
         private void Start()
         {
             _firstPosition = transform.position;

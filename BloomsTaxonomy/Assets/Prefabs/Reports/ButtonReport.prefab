@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_Pivot.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchorMin.y
@@ -38,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -50
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -800
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9055809038440737011, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_Name
-      value: Report
+      value: ButtonReport
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

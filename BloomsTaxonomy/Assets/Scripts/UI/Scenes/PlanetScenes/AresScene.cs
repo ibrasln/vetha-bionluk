@@ -8,15 +8,14 @@ namespace UI.Scenes
 {
     public class AresScene : PlanetScene
     {
-        public override void StartMission()
+        protected override IEnumerator StartMissionRoutine()
         {
+            yield return base.StartMissionRoutine();
             CurrentMission.Open();
         }
 
         protected override IEnumerator SkipStepRoutine()
         {
-            continueButton.Close();
-
             yield return new WaitForSeconds(1f);
             
             currentStepIndex++;
@@ -42,7 +41,6 @@ namespace UI.Scenes
                 }
                 else if (currentTutorial == Tutorials[3])
                 {
-                    SetIsCompleted(true);
                     TransitionManager.Instance.ChangeScene(UIObjects.Instance.UniverseScene);
                 }
                 yield break;
@@ -80,6 +78,7 @@ namespace UI.Scenes
             
             yield return new WaitForSeconds(.75f);
             
+            if (currentStepIndex != 0) undoButton.Open();
             continueButton.Open();
         }
     }

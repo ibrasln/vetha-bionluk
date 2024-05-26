@@ -34,15 +34,14 @@ namespace UI.Scenes
             _machine = GetComponentInChildren<Machine>();
         }
 
-        public override void StartMission()
+        protected override IEnumerator StartMissionRoutine()
         {
+            yield return base.StartMissionRoutine();
             CurrentMission.Open();
         }
 
         protected override IEnumerator SkipStepRoutine()
         {
-            continueButton.Close();
-
             yield return new WaitForSeconds(1f);
             
             currentStepIndex++;
@@ -65,7 +64,7 @@ namespace UI.Scenes
                     yield break;
                 }
                 
-                StartMission();
+                if (currentTutorial == Tutorials[0]) StartMission();
                 
                 yield break;
             }
@@ -105,6 +104,7 @@ namespace UI.Scenes
                 SetMission();
             }
             
+            if (currentStepIndex != 0) undoButton.Open();
             continueButton.Open();
         }
 

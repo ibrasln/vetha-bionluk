@@ -20,6 +20,7 @@ namespace UI.Scenes
         
         protected TextMeshProUGUI instructionText;
         protected UIElement continueButton;
+        protected UIElement undoButton;
 
         protected TutorialData currentTutorial;
         protected UIElement currentTutorialPanel;
@@ -27,6 +28,7 @@ namespace UI.Scenes
         protected int currentStepIndex;
         
         public Action OnSkippedStep;
+        public Action OnUndidStep;
         public UnityEvent OnTutorialStarted;
         public UnityEvent OnTutorialStopped;
 
@@ -35,6 +37,8 @@ namespace UI.Scenes
         {
             if (Tutorials.Length <= 0) return;
 
+            Debug.Log($"{name}: {CurrentTutorialIndex}.tutorial started!");
+            
             currentTutorial = Tutorials[index];
             
             OnTutorialStarted?.Invoke();
@@ -48,7 +52,7 @@ namespace UI.Scenes
         
         protected IEnumerator StopTutorialRoutine()
         {
-            currentTutorialPanel.Close();
+            currentTutorialPanel?.Close();
             
             if (CurrentTutorialIndex >= Tutorials.Length)
             {
@@ -69,9 +73,31 @@ namespace UI.Scenes
         #endregion
 
         #region Skip Step
-        public void SkipStep() => StartCoroutine(SkipStepRoutine());
+
+        public void SkipStep()
+        {
+            undoButton.Close();
+            continueButton.Close();
+            StartCoroutine(SkipStepRoutine());
+        }
 
         protected abstract IEnumerator SkipStepRoutine();
+        #endregion
+
+        #region Undo Step
+        public void UndoStep() => StartCoroutine(UndoStepRoutine());
+
+        private IEnumerator UndoStepRoutine()
+        {
+            undoButton.Close();
+            continueButton.Close();
+
+            yield return new WaitForSeconds(1f);
+            
+            currentStepIndex--;
+            OnUndidStep?.Invoke();
+            StartCoroutine(PlayTutorialStepRoutine());
+        }
         #endregion
         
         protected abstract IEnumerator PlayTutorialStepRoutine();
@@ -86,12 +112,12 @@ namespace UI.Scenes
             };
             
             instructionText = currentTutorialPanel.GetComponentInChildren<TextMeshProUGUI>();
-            continueButton = currentTutorialPanel.GetComponentInChildren<Button>().GetComponent<UIElement>();
+            continueButton = currentTutorialPanel.transform.Find("ContinueButton").GetComponent<UIElement>();
+            undoButton = currentTutorialPanel.transform.Find("UndoButton").GetComponent<UIElement>();
         }
         
         protected void SetText(string text)
         {
-            // Replace the <playerName> with player name. 
             string[] words = text.Split(' ');
             
             for (int i = 0; i < words.Length; i++)

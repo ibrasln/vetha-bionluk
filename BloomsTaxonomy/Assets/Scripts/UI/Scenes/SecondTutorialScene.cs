@@ -10,12 +10,11 @@ namespace UI.Scenes
         [SerializeField] private UIElement reportNotes;
         [SerializeField] private UIElement infoButton;
         [SerializeField] private UIElement quitButton;
+        [SerializeField] private UIElement diamondImage;
         
         
         protected override IEnumerator SkipStepRoutine()
         {
-            continueButton.Close();
-
             yield return new WaitForSeconds(1f);
             
             currentStepIndex++;
@@ -59,6 +58,9 @@ namespace UI.Scenes
                 case 3:
                     yield return StartCoroutine(OpenStepRoutine(quitButton));
                     break;
+                case 4:
+                    yield return StartCoroutine(OpenStepRoutine(diamondImage));
+                    break;
             }
             
             SetText(currentStep.Instruction);
@@ -73,7 +75,7 @@ namespace UI.Scenes
                     break;
                 case 1:
                     yield return StartCoroutine(CloseStepRoutine(reportNotes));
-                    yield return ShowWindow(UIObjects.Instance.ReportNotesWindow);
+                    yield return ShowWindow(UIObjects.Instance.ReportsPanelWindow);
                     break;
                 case 2:
                     yield return StartCoroutine(CloseStepRoutine(infoButton));
@@ -84,6 +86,7 @@ namespace UI.Scenes
                     break;
             }
             
+            if (currentStepIndex != 0) undoButton.Open();
             continueButton.Open();
             
         }

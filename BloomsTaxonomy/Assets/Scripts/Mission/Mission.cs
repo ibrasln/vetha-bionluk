@@ -1,8 +1,8 @@
 using System;
+using Manager;
 using UI;
 using UI.Scenes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Mission
 {
@@ -25,7 +25,11 @@ namespace Mission
             Debug.Log($"{gameObject.name} mission started!");
             OnMissionStarted?.Invoke();
         }
-        
-        public void CallOnMissionCompleted() => OnMissionCompleted?.Invoke();
+
+        public void CallOnMissionCompleted()
+        {
+            GameManager.Instance.IncreaseDiamondAmount(10);
+            OnMissionCompleted?.Invoke();
+        }
     }
 }

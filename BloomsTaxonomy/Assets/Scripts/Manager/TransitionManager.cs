@@ -52,24 +52,27 @@ namespace Manager
         {
             fadeScreenWindow.Activate();
             fadeScreenWindow.Open();
+            CurrentScene.Close();
             
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.25f);
             
+            Debug.Log("CURRENT SCENE:" + CurrentScene);
             CurrentScene.Deactivate();
             CurrentScene = scene;
             CurrentScene.Activate();
+            Debug.Log("CURRENT SCENE:" + CurrentScene);
 
             fadeScreenWindow.Close();
             
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.25f);
             
             fadeScreenWindow.Deactivate();
             
-            scene.Open();
+            CurrentScene.Open();
             
-            yield return new WaitWhile(() => !scene.IsOpened);
+            yield return new WaitWhile(() => !CurrentScene.IsOpened);
 
-            scene.StartTutorial(scene.CurrentTutorialIndex);
+            CurrentScene.StartTutorial(CurrentScene.CurrentTutorialIndex);
 
             OnSceneChanged?.Invoke(CurrentScene);
         }

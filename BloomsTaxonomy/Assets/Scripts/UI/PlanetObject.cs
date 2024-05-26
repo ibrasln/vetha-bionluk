@@ -35,6 +35,7 @@ namespace UI
 
         private void CheckIfShouldUnlock()
         {
+            if (previousPlanetScene is null) return;
             IsLocked = !previousPlanetScene.IsCompleted;
         }
         

@@ -1,13 +1,18 @@
+using System;
+using System.Collections;
+using NaughtyAttributes;
 using TMPro;
 using UI;
 using UI.Scenes;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Mission.Report
 {
     public class Report : UIElement
     {
-        private PlanetScene _planetScene;
+        [ReadOnly] public PlanetScene PlanetScene;
+        private Button _backButton;
 
         protected bool isCompleted;
         
@@ -26,13 +31,37 @@ namespace Mission.Report
         
         protected virtual void Awake()
         {
-            _planetScene = GetComponentInParent<PlanetScene>();
+            PlanetScene = GetComponentInParent<PlanetScene>();
+            _backButton = transform.Find("BackButton").GetComponent<Button>();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            _backButton.onClick.AddListener(BackButton);
         }
 
         public void OnReportCompleted()
         {
+            StartCoroutine(OnReportCompletedRoutine());
+        }
+
+        private IEnumerator OnReportCompletedRoutine()
+        {
+            ClosePanel();
+            
             if (isCompleted) Close();
-            else ClosePanel();
+
+            yield return new WaitForSeconds(1.25f);
+
+            if (!isCompleted) yield break;
+            
+            OnClosed();
+            
+            Debug.Log("Report has been added to reports panel!");
+                
+            transform.SetParent(UIObjects.Instance.ReportsPanelWindow.ReportsParent);
+
         }
 
         public virtual void CheckAnswers() { }
@@ -45,6 +74,15 @@ namespace Mission.Report
         private void ClosePanel()
         {
             feedbackPanel.Close();
+        }
+
+        public void SetBackButtonActive(bool state) => _backButton.gameObject.SetActive(state);
+
+        private void BackButton()
+        {
+            Close();
+            PlanetScene.GetComponent<Canvas>().sortingOrder = 25;
+            PlanetScene.gameObject.SetActive(false);
         }
     }
 }

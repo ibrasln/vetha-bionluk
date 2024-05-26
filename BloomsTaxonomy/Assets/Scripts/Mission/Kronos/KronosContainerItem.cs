@@ -4,6 +4,7 @@ using DG.Tweening;
 using DragDrop;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Mission.Kronos
 {
@@ -40,7 +41,9 @@ namespace Mission.Kronos
             draggableItem.transform.SetParent(transform);
             draggableItem.transform.position = transform.position;
                     
-            image.DOColor(Color.green, .5f);
+            Image webImage = draggableItem.transform.Find("Web").GetComponent<Image>();
+            
+            webImage.DOColor(Color.green, .5f);
                     
             draggableItem.enabled = false;
             
@@ -61,11 +64,12 @@ namespace Mission.Kronos
         private IEnumerator OnWrongRoutine(DraggableItem draggableItem)
         {
             draggableItem.ReturnOldPosition();
-            image.DOColor(Color.red, .5f);
+            Image webImage = draggableItem.transform.Find("Web").GetComponent<Image>();
+            webImage.DOColor(Color.red, .5f);
 
             yield return new WaitForSeconds(1f);
             
-            image.DOColor(Color.white, .5f);
+            webImage.DOColor(Color.white, .5f);
         }
     }
 }

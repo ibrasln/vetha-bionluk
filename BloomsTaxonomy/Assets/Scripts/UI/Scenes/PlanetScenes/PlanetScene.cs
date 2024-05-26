@@ -17,18 +17,31 @@ namespace UI.Scenes
         protected int currentMissionIndex;
 
         public void SetIsCompleted(bool state) => IsCompleted = state;
-        
-        public virtual void StartMission(){}
+
+        public void StartMission()
+        {
+            StartCoroutine(StartMissionRoutine());
+        }
+
+        protected virtual IEnumerator StartMissionRoutine()
+        {
+            yield return new WaitForSeconds(1.75f);
+        }
         
         public void SetMission()
         {
+            StartCoroutine(SetMissionRoutine());
+        }
+
+        private IEnumerator SetMissionRoutine()
+        {
+            yield return new WaitForSeconds(1.5f);
             if (CurrentMission != null) CurrentMission.Deactivate();
             if (currentMissionIndex < missions.Length) CurrentMission = missions[currentMissionIndex];
             
             CurrentMission.Activate();
             currentMissionIndex++;
         }
-
 
         protected override IEnumerator SkipStepRoutine()
         {

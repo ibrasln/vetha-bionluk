@@ -13,8 +13,6 @@ namespace UI.Scenes
         
         protected override IEnumerator SkipStepRoutine()
         {
-            continueButton.Close();
-
             yield return new WaitForSeconds(1f);
             
             if (currentStepIndex == 1)
@@ -68,6 +66,7 @@ namespace UI.Scenes
                 yield return StartCoroutine(GetPlayerNameRoutine());
             }
             
+            if (currentStepIndex != 0) undoButton.Open();
             continueButton.Open();
         }
 

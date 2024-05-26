@@ -6,12 +6,7 @@ namespace DragDrop
 {
     public class DragDropItem : MonoBehaviour
     {
-        protected Image image;
+        [SerializeField] protected Image image;
         public int ObjectId;
-
-        private void Awake()
-        {
-            image = GetComponent<Image>();
-        }
     }
 }

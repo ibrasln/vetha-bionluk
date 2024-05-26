@@ -8,16 +8,15 @@ namespace UI.Scenes
 {
     public class KronosScene : PlanetScene
     {
-        public override void StartMission()
+        protected override IEnumerator StartMissionRoutine()
         {
+            yield return base.StartMissionRoutine();
             KronosMission kronosMission = CurrentMission as KronosMission;
             if (kronosMission != null) kronosMission.SetDraggableItems(true);
         }
 
         protected override IEnumerator SkipStepRoutine()
         {
-            continueButton.Close();
-
             yield return new WaitForSeconds(1f);
             
             currentStepIndex++;
@@ -70,6 +69,7 @@ namespace UI.Scenes
             
             yield return new WaitForSeconds(.75f);
             
+            if (currentStepIndex != 0) undoButton.Open();
             continueButton.Open();
         }
     }

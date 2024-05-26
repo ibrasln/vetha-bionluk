@@ -16,8 +16,9 @@ namespace UI.Scenes
         [SerializeField] private Sprite correctFeedback;
         [SerializeField] private Sprite wrongFeedback;
         
-        public override void StartMission()
+        protected override IEnumerator StartMissionRoutine()
         {
+            yield return base.StartMissionRoutine();
             EarthMission mission = CurrentMission as EarthMission;
             float value = 0;
             
@@ -47,8 +48,6 @@ namespace UI.Scenes
 
         protected override IEnumerator SkipStepRoutine()
         {
-            continueButton.Close();
-
             yield return new WaitForSeconds(1f);
             
             if (currentTutorial == Tutorials[0] && currentStepIndex == 0) SetMission();
@@ -106,6 +105,7 @@ namespace UI.Scenes
             
             yield return new WaitForSeconds(.75f);
             
+            if (currentStepIndex != 0) undoButton.Open();
             continueButton.Open();
         }
         
