@@ -38,7 +38,6 @@ namespace Mission.Report
         protected override void Start()
         {
             base.Start();
-            _backButton.onClick.AddListener(BackButton);
         }
 
         public void OnReportCompleted()
@@ -77,12 +76,5 @@ namespace Mission.Report
         }
 
         public void SetBackButtonActive(bool state) => _backButton.gameObject.SetActive(state);
-
-        private void BackButton()
-        {
-            Close();
-            PlanetScene.GetComponent<Canvas>().sortingOrder = 25;
-            PlanetScene.gameObject.SetActive(false);
-        }
     }
 }

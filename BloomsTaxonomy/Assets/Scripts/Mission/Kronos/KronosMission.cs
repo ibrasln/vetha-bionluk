@@ -19,8 +19,9 @@ namespace Mission.Kronos
         
         public int CorrectMatches => _correctMatches;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             SetDraggableItems(false);
             OnMissionCompleted += Report.Open;
         }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Steps:
   - EkoBotSprite: {fileID: -586182886, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
-    Instruction: "Selam! Sen Galaksi'nin Koruyucusu olmal\u0131s\u0131n."
+    Instruction: "Selam! Sen galaksimizi korumaya gelen kahraman olmal\u0131s\u0131n."
     PanelState: 1
   - EkoBotSprite: {fileID: -586182886, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "Bana ismini s\xF6yler misin?"

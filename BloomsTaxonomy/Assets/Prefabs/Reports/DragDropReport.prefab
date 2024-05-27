@@ -697,7 +697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_Pivot.y
@@ -705,7 +705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -713,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchorMin.y
@@ -769,7 +769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -800
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3362007609471580088, guid: efddcbdf9d18ccd46bb858236976db3d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -849,6 +849,7 @@ MonoBehaviour:
   CloseAnimation: {fileID: 3445337594016894799}
   IsOpened: 0
   IsClosed: 0
+  PlanetScene: {fileID: 0}
   correctSprite: {fileID: 21300118, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
   wrongSprite: {fileID: 21300120, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
   correctFeedbackText: 

@@ -12,11 +12,13 @@ namespace Mission
         public Action OnMissionCompleted;
 
         public Report.Report Report;
+        public UIElement FadeScreen;
         public PlanetScene Planet;
 
         private void Awake()
         {
             Report = transform.Find("Report").GetComponent<Report.Report>();
+            FadeScreen = transform.Find("FadeScreen").GetComponent<UIElement>();
             Planet = GetComponentInParent<PlanetScene>();
         }
 

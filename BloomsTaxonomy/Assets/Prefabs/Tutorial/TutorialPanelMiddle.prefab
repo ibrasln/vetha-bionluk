@@ -130,8 +130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -100, y: -100}
+  m_AnchoredPosition: {x: 1.3493958, y: 0}
+  m_SizeDelta: {x: -27.699, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3326123569679813827
 CanvasRenderer:
@@ -161,7 +161,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Kar\u015F\u0131l\u0131\u011F\u0131nda elmaslar verecekler. Ayr\u0131ca
+    g\xF6rev sonunda \"Galaksinin Koruyucusu\" sertifikas\u0131n\u0131 da almaya
+    hak kazanacaks\u0131n."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb7913e7f70aac844a4318983ae491a6, type: 2}
   m_sharedMaterial: {fileID: 3062204349707920854, guid: eb7913e7f70aac844a4318983ae491a6, type: 2}
@@ -170,7 +172,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281348144
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -188,14 +190,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 55
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 12
-  m_fontSizeMax: 72
+  m_fontSizeMax: 55
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -545,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 225
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -663,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: -110
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Manager;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,6 +41,9 @@ namespace UI.Scenes
             if (currentMissionIndex < missions.Length) CurrentMission = missions[currentMissionIndex];
             
             CurrentMission.Activate();
+            
+            GameManager.Instance.SetCurrentMission(CurrentMission);
+            
             currentMissionIndex++;
         }
 

@@ -71,16 +71,12 @@ namespace Mission.Earth
         private void Update()
         {
             if (CanAnimateSliders) AnimateSliders();
-            
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                SetGraphs();
-                DrawGraphs();
-            }
         }
         
         public void Initialize(float value)
         {
+            ResetGraphs();
+  
             SetCurrentSlider();
             SetGraphs();
             AnimateSlider(CurrentSlider, value);
@@ -125,11 +121,19 @@ namespace Mission.Earth
             CanAnimateSliders = true;
         }
 
+        public void ResetGraphs()
+        {
+            foreach (UILineRenderer graph in graphs)
+            {
+                graph.ResetPoints();
+            }
+        }
+
         public void AnimateSliders()
         {
             for (int i = 0; i < sliders.Length; i++)
             {
-                if (graphs[i].CurrentPointIndex >= graphs[i].Points.Length) break;
+                if (graphs[i].CurrentPointIndex >= graphs[i].Points.Count) break;
                 UpdateSliderValue(sliders[i], graphs[i].Points[graphs[i].CurrentPointIndex].y);
             }
         }

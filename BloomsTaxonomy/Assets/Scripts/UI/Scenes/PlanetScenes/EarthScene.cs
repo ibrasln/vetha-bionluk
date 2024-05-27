@@ -20,6 +20,7 @@ namespace UI.Scenes
         {
             yield return base.StartMissionRoutine();
             EarthMission mission = CurrentMission as EarthMission;
+            
             float value = 0;
             
             if (currentTutorial == Tutorials[0])

@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +9,7 @@ namespace Mission.Earth
 {
     public class UILineRenderer : Graphic
     {
-        public Vector2[] Points;
+        public List<Vector2> Points;
         public float Thickness = 10f;
         public bool Center = true;
         public float DrawTime = 0.5f; // Speed of drawing the line
@@ -21,12 +23,12 @@ namespace Mission.Earth
             base.Awake();
             _earthMission = GetComponentInParent<EarthMission>();
         }
-
+        
         protected override void OnPopulateMesh(VertexHelper vh)
         {
             vh.Clear();
 
-            if (Points == null || Points.Length < 2)
+            if (Points == null || Points.Count < 2)
                 return;
 
             for (int i = 0; i < CurrentPointIndex - 1; i++)
@@ -100,20 +102,26 @@ namespace Mission.Earth
         {
             CurrentPointIndex = 0;
 
-            while (CurrentPointIndex < Points.Length)
+            while (CurrentPointIndex < Points.Count)
             {
                 CurrentPointIndex++;
                 SetVerticesDirty();
                 yield return new WaitForSeconds(DrawTime);
             }
 
-            _earthMission.CanAnimateSliders = true;
+            _earthMission.CanAnimateSliders = false;
 
             yield return new WaitForSeconds(1f);
             
             _earthMission.OnGraphsAnimated();
         }
 
-        public void SetPoints(Vector2[] newPoints) => Points = newPoints;
+        public void SetPoints(List<Vector2> newPoints) => Points = newPoints;
+        
+        public void ResetPoints()
+        {
+            Points.Clear();
+            CurrentPointIndex = 0;
+        }
     }
 }
