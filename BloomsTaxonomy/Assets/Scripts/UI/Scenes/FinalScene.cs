@@ -2,6 +2,7 @@ using System.Collections;
 using Manager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI.Scenes
 {
@@ -47,7 +48,11 @@ namespace UI.Scenes
             
             if (currentStepIndex != 0) undoButton.Open();
             continueButton.Open();
-            
+        }
+
+        public void PlayAgainButton()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

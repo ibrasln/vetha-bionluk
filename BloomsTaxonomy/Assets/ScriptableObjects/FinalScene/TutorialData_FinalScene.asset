@@ -15,5 +15,5 @@ MonoBehaviour:
   Steps:
   - EkoBotSprite: {fileID: 1377145359, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "Tebrikler <playerName>! T\xFCm g\xF6revleri ba\u015Far\u0131yla
-      tamamlad\u0131n. Bu sertifikay\u0131 hakettin."
+      tamamlad\u0131n ve elmaslar\u0131 toplad\u0131n. Bu sertifikay\u0131 hakettin."
     PanelState: 1

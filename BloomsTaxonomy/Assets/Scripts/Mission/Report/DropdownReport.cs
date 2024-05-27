@@ -32,11 +32,13 @@ namespace Mission.Report
             if (isCompleted)
             {
                 feedbackPanel.GetComponent<Image>().sprite = correctFeedbackPanelSprite;
+                feedbackPanel.GetComponent<AudioSource>().PlayOneShot(correctFeedbackSound);
                 feedbackText.text = correctFeedbackText;
             }
             else
             {
                 feedbackPanel.GetComponent<Image>().sprite = wrongFeedbackPanelSprite;
+                feedbackPanel.GetComponent<AudioSource>().PlayOneShot(wrongFeedbackSound);
                 feedbackText.text = wrongFeedbackText;
             }
         }

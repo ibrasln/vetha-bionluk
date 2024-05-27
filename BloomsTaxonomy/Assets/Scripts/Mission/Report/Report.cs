@@ -29,6 +29,8 @@ namespace Mission.Report
         [SerializeField] protected TextMeshProUGUI feedbackText;
         [SerializeField] protected Sprite correctFeedbackPanelSprite;
         [SerializeField] protected Sprite wrongFeedbackPanelSprite;
+        [SerializeField] protected AudioClip correctFeedbackSound;
+        [SerializeField] protected AudioClip wrongFeedbackSound;
         
         protected virtual void Awake()
         {
