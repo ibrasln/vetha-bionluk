@@ -24,6 +24,11 @@ MonoBehaviour:
       senin i\xE7in haz\u0131r bekliyor olacak."
     PanelState: 0
   - EkoBotSprite: {fileID: 1883886435, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
+    Instruction: "Ana men\xFC. Bu butona bas\u0131nca gezegenler aras\u0131 ge\xE7i\u015F
+      yapabilirsin. Bu her zaman sol alt k\xF6\u015Fede senin i\xE7in haz\u0131r
+      bekliyor olacak."
+    PanelState: 0
+  - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "Bilgi paneli butonu. Bu butona bas\u0131nca g\xF6revler i\xE7in
       y\xF6nergeleri bulabilirsin. Bu her zaman sa\u011F \xFCst k\xF6\u015Fede senin
       i\xE7in haz\u0131r bekliyor olacak."
@@ -32,6 +37,11 @@ MonoBehaviour:
     Instruction: "\xC7\u0131k\u0131\u015F butonu. Bu butona basarak istedi\u011Fin
       zaman \xE7\u0131kabilirsin. Bu her zaman sa\u011F alt k\xF6\u015Fede senin
       i\xE7in haz\u0131r bekliyor olacak."
+    PanelState: 0
+  - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
+    Instruction: "Anl\u0131k rapor mesaj\u0131. Bu butona basarak kapatt\u0131\u011F\u0131n
+      rapora geri d\xF6nebilirsin. Bu her zaman sol \xFCst k\xF6\u015Fede senin i\xE7in
+      haz\u0131r bekliyor olacak."
     PanelState: 0
   - EkoBotSprite: {fileID: -586182886, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "Son olarak sol alt k\xF6\u015Fede g\xF6revleri tamamlayarak kazand\u0131\u011F\u0131n

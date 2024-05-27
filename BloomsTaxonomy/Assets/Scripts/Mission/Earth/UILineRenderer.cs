@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -116,7 +117,7 @@ namespace Mission.Earth
             _earthMission.OnGraphsAnimated();
         }
 
-        public void SetPoints(List<Vector2> newPoints) => Points = newPoints;
+        public void SetPoints(Vector2[] points) => Points = points.ToList();   
         
         public void ResetPoints()
         {

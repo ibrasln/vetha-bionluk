@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Mission.Report;
 using NaughtyAttributes;
 using UnityEngine;
@@ -75,8 +77,8 @@ namespace Mission.Earth
         
         public void Initialize(float value)
         {
-            ResetGraphs();
-  
+            SetGraphsActive(false);
+            
             SetCurrentSlider();
             SetGraphs();
             AnimateSlider(CurrentSlider, value);
@@ -115,20 +117,21 @@ namespace Mission.Earth
         {
             foreach (UILineRenderer graph in graphs)
             {
+                SetGraphsActive(true);
                 graph.StartDrawing();
             }
 
             CanAnimateSliders = true;
         }
 
-        public void ResetGraphs()
+        private void SetGraphsActive(bool state)
         {
             foreach (UILineRenderer graph in graphs)
             {
-                graph.ResetPoints();
+                graph.gameObject.SetActive(state);
             }
         }
-
+        
         public void AnimateSliders()
         {
             for (int i = 0; i < sliders.Length; i++)

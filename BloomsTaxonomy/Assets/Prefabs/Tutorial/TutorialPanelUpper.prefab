@@ -503,11 +503,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 125
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 45
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_LocalScale.x
@@ -551,11 +551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 841
+      value: 860
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 12
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -569,13 +569,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5723128983824337118, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6485833184120685775, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_Name
       value: ContinueButton
       objectReference: {fileID: 0}
     - target: {fileID: 7897724807752944291, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_fontSize
-      value: 19.95
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7897724807752944291, guid: 8bafe0dc0f6dcb5439ca5347cb0544f8, type: 3}
       propertyPath: m_enableAutoSizing
@@ -625,11 +629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 125
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 45
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_LocalScale.x
@@ -673,11 +677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 706.75
+      value: 716
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 12
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -691,13 +695,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6485833184120685775, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_Name
       value: UndoButton
       objectReference: {fileID: 0}
     - target: {fileID: 7897724807752944291, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_fontSize
-      value: 25.65
+      value: 32.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

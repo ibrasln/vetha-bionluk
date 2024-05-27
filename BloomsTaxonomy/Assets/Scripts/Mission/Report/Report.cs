@@ -13,6 +13,7 @@ namespace Mission.Report
     {
         [ReadOnly] public PlanetScene PlanetScene;
         private Button _backButton;
+        private Button _reportButton;
 
         protected bool isCompleted;
         
@@ -33,6 +34,7 @@ namespace Mission.Report
         {
             PlanetScene = GetComponentInParent<PlanetScene>();
             _backButton = transform.Find("BackButton").GetComponent<Button>();
+            _reportButton = transform.Find("ReportButton").GetComponent<Button>();
         }
 
         protected override void Start()
@@ -60,9 +62,21 @@ namespace Mission.Report
             Debug.Log("Report has been added to reports panel!");
                 
             transform.SetParent(UIObjects.Instance.ReportsPanelWindow.ReportsParent);
-
+            
+            RemoveAllListeners();
+            _backButton.onClick.AddListener(Close);
         }
 
+        private void RemoveAllListeners()
+        {
+            OpenAnimation.OnStartEvent.RemoveAllListeners();
+            OpenAnimation.OnFinishedEvent.RemoveAllListeners();
+            CloseAnimation.OnStartEvent.RemoveAllListeners();
+            CloseAnimation.OnFinishedEvent.RemoveAllListeners();
+            _backButton.onClick.RemoveAllListeners();
+            _reportButton.interactable = false;
+        }
+        
         public virtual void CheckAnswers() { }
 
         public virtual void OpenPanel()
@@ -74,7 +88,5 @@ namespace Mission.Report
         {
             feedbackPanel.Close();
         }
-
-        public void SetBackButtonActive(bool state) => _backButton.gameObject.SetActive(state);
     }
 }

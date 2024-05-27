@@ -8,10 +8,11 @@ namespace UI.Scenes
     {
         [SerializeField] private UIElement notebook;
         [SerializeField] private UIElement reportNotes;
+        [SerializeField] private UIElement mainMenuButton;
+        [SerializeField] private UIElement openReportButton;
         [SerializeField] private UIElement infoButton;
         [SerializeField] private UIElement quitButton;
         [SerializeField] private UIElement diamondImage;
-        
         
         protected override IEnumerator SkipStepRoutine()
         {
@@ -53,12 +54,18 @@ namespace UI.Scenes
                     yield return StartCoroutine(OpenStepRoutine(reportNotes));
                     break;
                 case 2:
-                    yield return StartCoroutine(OpenStepRoutine(infoButton));
+                    yield return StartCoroutine(OpenStepRoutine(mainMenuButton));
                     break;
                 case 3:
-                    yield return StartCoroutine(OpenStepRoutine(quitButton));
+                    yield return StartCoroutine(OpenStepRoutine(infoButton));
                     break;
                 case 4:
+                    yield return StartCoroutine(OpenStepRoutine(quitButton));
+                    break;
+                case 5:
+                    yield return StartCoroutine(OpenStepRoutine(openReportButton));
+                    break;
+                case 6:
                     yield return StartCoroutine(OpenStepRoutine(diamondImage));
                     break;
             }
@@ -78,11 +85,17 @@ namespace UI.Scenes
                     yield return ShowWindow(UIObjects.Instance.ReportsPanelWindow);
                     break;
                 case 2:
+                    yield return StartCoroutine(CloseStepRoutine(mainMenuButton));
+                    break;
+                case 3:
                     yield return StartCoroutine(CloseStepRoutine(infoButton));
                     yield return ShowWindow(UIObjects.Instance.InfoWindow);
                     break;
-                case 3:
+                case 4:
                     yield return StartCoroutine(CloseStepRoutine(quitButton));
+                    break;
+                case 5:
+                    yield return StartCoroutine(CloseStepRoutine(openReportButton));
                     break;
             }
             
