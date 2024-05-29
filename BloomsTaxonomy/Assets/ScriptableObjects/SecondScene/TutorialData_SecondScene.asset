@@ -25,8 +25,8 @@ MonoBehaviour:
     PanelState: 0
   - EkoBotSprite: {fileID: 1883886435, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "Ana men\xFC. Bu butona bas\u0131nca gezegenler aras\u0131 ge\xE7i\u015F
-      yapabilirsin. Bu her zaman sol alt k\xF6\u015Fede senin i\xE7in haz\u0131r
-      bekliyor olacak."
+      ve g\xF6rev tekrar\u0131n\u0131 ger\xE7ekle\u015Ftirebilirsin. Bu her zaman
+      sol alt k\xF6\u015Fede senin i\xE7in haz\u0131r bekliyor olacak."
     PanelState: 0
   - EkoBotSprite: {fileID: 677722249, guid: 566baa3128f1ae14a94dba81349975b0, type: 3}
     Instruction: "Bilgi paneli butonu. Bu butona bas\u0131nca g\xF6revler i\xE7in
