@@ -17361,7 +17361,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsCompleted: 0
-  infoPanelSprite: {fileID: 21300000, guid: d776f97bb9cc77e4f8438bec5069faf9, type: 3}
+  infoPanelSprite: {fileID: 21300000, guid: 51eace3c3862e8841a0f63772e140399, type: 3}
   missions:
   - {fileID: 1403158165}
   CurrentMission: {fileID: 0}
@@ -31470,7 +31470,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsCompleted: 0
-  infoPanelSprite: {fileID: 21300000, guid: 0ece6c8b283da46448ccd222eb26d118, type: 3}
+  infoPanelSprite: {fileID: 21300000, guid: f57ac1ed0cebd824d9d5d855e7ee7e8f, type: 3}
   missions:
   - {fileID: 582146751}
   CurrentMission: {fileID: 0}
@@ -58799,7 +58799,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsCompleted: 0
-  infoPanelSprite: {fileID: 21300000, guid: 233606cd10c66834abbb60d57934e18a, type: 3}
+  infoPanelSprite: {fileID: 21300000, guid: 9ebdd7c4773b7f94c87ca6384974f133, type: 3}
   missions:
   - {fileID: 1182817125}
   - {fileID: 125798210}
@@ -59542,7 +59542,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   IsCompleted: 0
-  infoPanelSprite: {fileID: 21300000, guid: e713e0e803919214fa9b92ee0afffe36, type: 3}
+  infoPanelSprite: {fileID: 21300000, guid: 36ad1ba2585eff54080731a973c2a407, type: 3}
   missions:
   - {fileID: 1581595788}
   - {fileID: 602725552}
@@ -64163,7 +64163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fc9d4ff6a34324429d6e17d59d1464b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16fdef1d12d92854fb8fa3837b222232, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
