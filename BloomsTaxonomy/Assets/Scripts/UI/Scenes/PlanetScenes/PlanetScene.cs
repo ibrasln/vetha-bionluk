@@ -12,12 +12,18 @@ namespace UI.Scenes
     {
         [Space(7)] [Header("PLANET PROPERTIES")]
         public bool IsCompleted;
+        [SerializeField] private Sprite infoPanelSprite;
         [SerializeField] private Mission.Mission[] missions;
         
         [ReadOnly] public Mission.Mission CurrentMission;
         protected int currentMissionIndex;
 
         public void SetIsCompleted(bool state) => IsCompleted = state;
+
+        private void OnEnable()
+        {
+            GameManager.Instance.SetInfoPanelSprite(infoPanelSprite);
+        }
 
         public void StartMission()
         {

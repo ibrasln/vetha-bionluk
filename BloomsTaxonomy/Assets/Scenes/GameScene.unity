@@ -7662,8 +7662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSteps:
-  - rid: 8158989886544150530
+  animationSteps: []
   updateType: 0
   timeScaleIndependent: 0
   autoplayMode: 2
@@ -7685,17 +7684,7 @@ MonoBehaviour:
   progress: -1
   references:
     version: 2
-    RefIds:
-    - rid: 8158989886544150530
-      type: {class: DOTweenAnimationStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 0
-        target: {fileID: 1326241547}
-        duration: 1
-        loopCount: 0
-        loopType: 0
-        actions: []
+    RefIds: []
 --- !u!1 &312601138
 GameObject:
   m_ObjectHideFlags: 0
@@ -8496,6 +8485,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1816484954}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 903443146}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
         m_Mode: 6
@@ -15768,6 +15769,17 @@ RectTransform:
   m_AnchoredPosition: {x: -960, y: -540}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &609399116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8985629167632474941, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
+  m_PrefabInstance: {fileID: 1403158163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &612193257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17361,13 +17373,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsCompleted: 0
+  infoPanelSprite: {fileID: 21300000, guid: d776f97bb9cc77e4f8438bec5069faf9, type: 3}
   missions:
   - {fileID: 1403158165}
   CurrentMission: {fileID: 0}
-  feedbackPanel: {fileID: 0}
-  feedbackText: {fileID: 0}
-  correctFeedback: {fileID: 0}
-  wrongFeedback: {fileID: 0}
 --- !u!1 &668908841
 GameObject:
   m_ObjectHideFlags: 0
@@ -17433,6 +17442,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1816484954}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 903443146}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
         m_Mode: 6
@@ -23817,6 +23838,7 @@ MonoBehaviour:
   - rid: 8158990382460305426
   - rid: 8158990382460305428
   - rid: 8158990382460305422
+  - rid: 8158990481900437504
   updateType: 0
   timeScaleIndependent: 0
   autoplayMode: 2
@@ -23943,6 +23965,32 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 1
               m_CallState: 2
+    - rid: 8158990481900437504
+      type: {class: DOTweenAnimationStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0
+        flowType: 1
+        target: {fileID: 2011540837}
+        duration: 1
+        loopCount: 0
+        loopType: 0
+        actions:
+        - rid: 8158990481900437505
+    - rid: 8158990481900437505
+      type: {class: ScaleDOTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 27
+          curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        isRelative: 0
+        scale: {x: 1, y: 1, z: 1}
+        axisConstraint: 0
 --- !u!1001 &898936448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31434,6 +31482,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsCompleted: 0
+  infoPanelSprite: {fileID: 21300000, guid: 0ece6c8b283da46448ccd222eb26d118, type: 3}
   missions:
   - {fileID: 582146751}
   CurrentMission: {fileID: 0}
@@ -33117,6 +33166,7 @@ MonoBehaviour:
   DiamondAmount: 0
   CurrentMission: {fileID: 0}
   diamondText: {fileID: 1818012555}
+  infoPanelImage: {fileID: 2039193364}
 --- !u!82 &1153164453
 AudioSource:
   m_ObjectHideFlags: 0
@@ -43195,7 +43245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 35
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 5723128983824337118, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -43212,6 +43262,10 @@ PrefabInstance:
     - target: {fileID: 6485833184120685775, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
       propertyPath: m_Name
       value: UndoButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897724807752944291, guid: 6a27f97a05dc13d479e98b39d0a10234, type: 3}
+      propertyPath: m_fontSize
+      value: 40.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43727,7 +43781,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 146557159552085922, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_text
-      value: "Azal\u0131r"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 281525177754606325, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -43779,7 +43833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 589604981336199998, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 795871212971401493, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -43815,7 +43869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1512398351587799045, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1512398351587799045, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_AnchorMax.y
@@ -44263,7 +44317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4692466639949122393, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4692466639949122393, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_AnchorMax.y
@@ -44359,7 +44413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6284488809403733155, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6284488809403733155, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_AnchorMax.y
@@ -44367,7 +44421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6287818799604771855, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: m_text
-      value: "Azal\u0131r"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6338066084266359016, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: managedReferences[8158989972471283745].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -44376,6 +44430,10 @@ PrefabInstance:
     - target: {fileID: 6338066084266359016, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: managedReferences[8158989972471283745].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858953621838720045, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
+      propertyPath: IsClosed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6858953621838720045, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: IsOpened
@@ -44401,6 +44459,14 @@ PrefabInstance:
       propertyPath: rabbitReport
       value: 
       objectReference: {fileID: 68724004}
+    - target: {fileID: 6858953621838720045, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
+      propertyPath: OpenAnimation
+      value: 
+      objectReference: {fileID: 2145959148}
+    - target: {fileID: 6858953621838720045, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
+      propertyPath: CloseAnimation
+      value: 
+      objectReference: {fileID: 609399116}
     - target: {fileID: 6858953621838720045, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
       propertyPath: Sliders.Array.size
       value: 3
@@ -51941,8 +52007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSteps:
-  - rid: 8158989886544150531
+  animationSteps: []
   updateType: 0
   timeScaleIndependent: 0
   autoplayMode: 2
@@ -51964,17 +52029,7 @@ MonoBehaviour:
   progress: -1
   references:
     version: 2
-    RefIds:
-    - rid: 8158989886544150531
-      type: {class: DOTweenAnimationStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 0
-        target: {fileID: 1326241547}
-        duration: 1
-        loopCount: 0
-        loopType: 0
-        actions: []
+    RefIds: []
 --- !u!1001 &1658026729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58755,7 +58810,8 @@ MonoBehaviour:
   OnTutorialStopped:
     m_PersistentCalls:
       m_Calls: []
-  IsCompleted: 1
+  IsCompleted: 0
+  infoPanelSprite: {fileID: 21300000, guid: 233606cd10c66834abbb60d57934e18a, type: 3}
   missions:
   - {fileID: 1182817125}
   - {fileID: 125798210}
@@ -59498,6 +59554,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   IsCompleted: 0
+  infoPanelSprite: {fileID: 21300000, guid: e713e0e803919214fa9b92ee0afffe36, type: 3}
   missions:
   - {fileID: 1581595788}
   - {fileID: 602725552}
@@ -63255,7 +63312,7 @@ RectTransform:
   m_GameObject: {fileID: 2011540837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1291758328}
@@ -64118,7 +64175,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4beb5f5348ff3914d8ca3530832cf075, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fc9d4ff6a34324429d6e17d59d1464b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -66923,6 +66980,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144868447}
   m_CullTransparentMesh: 1
+--- !u!114 &2145959148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2440338971601947606, guid: f3c303d3fc693f6499b4f7c8cdf00534, type: 3}
+  m_PrefabInstance: {fileID: 1403158163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10d422b52559da41aa9676770a8fc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &738981783285278729
 PrefabInstance:
   m_ObjectHideFlags: 0

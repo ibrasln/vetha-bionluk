@@ -10,12 +10,6 @@ namespace UI.Scenes
 {
     public class EarthScene : PlanetScene
     {
-        [Space(7)] [Header("FEEDBACK PANEL PROPERTIES")]
-        [SerializeField] private UIElement feedbackPanel;
-        [SerializeField] private TextMeshProUGUI feedbackText;
-        [SerializeField] private Sprite correctFeedback;
-        [SerializeField] private Sprite wrongFeedback;
-        
         protected override IEnumerator StartMissionRoutine()
         {
             yield return base.StartMissionRoutine();
@@ -108,26 +102,6 @@ namespace UI.Scenes
             
             if (currentStepIndex != 0) undoButton.Open();
             continueButton.Open();
-        }
-        
-        public void OpenPanel(bool state)
-        {
-            feedbackPanel.Open();
-            if (state)
-            {
-                feedbackPanel.GetComponent<Image>().sprite = correctFeedback;
-                feedbackText.text = "Harika. Bu canlının piramidin hangi basamağına ait olduğunu kolaylıkla buldun.";
-            }
-            else
-            {
-                feedbackPanel.GetComponent<Image>().sprite = wrongFeedback;
-                feedbackText.text = "Bu canlıyı yanlış basamağa yerleştirdin. Tekrar dene!";
-            }
-        }
-        
-        public void ClosePanel()
-        {
-            feedbackPanel.Close();
         }
     }
 }

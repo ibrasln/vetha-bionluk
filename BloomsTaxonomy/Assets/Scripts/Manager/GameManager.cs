@@ -2,6 +2,7 @@ using DG.Tweening;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Utilities;
 
 namespace Manager
@@ -12,6 +13,7 @@ namespace Manager
         [ReadOnly] public int DiamondAmount;
         [ReadOnly] public Mission.Mission CurrentMission;
         [SerializeField] private TextMeshProUGUI diamondText;
+        [SerializeField] private Image infoPanelImage;
         
         private void Start()
         {
@@ -24,6 +26,8 @@ namespace Manager
             UpdateDiamondText();
         }
 
+        public void SetInfoPanelSprite(Sprite sprite) => infoPanelImage.sprite = sprite;
+        
         private void UpdateDiamondText() => diamondText.text = DiamondAmount.ToString();
         
         public void SetPlayerName(string playerName) => PlayerName = playerName;

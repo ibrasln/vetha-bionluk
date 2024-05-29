@@ -10,7 +10,7 @@ namespace Mission
     {
         public Action OnMissionStarted;
         public Action OnMissionCompleted;
-
+        
         public Report.Report Report;
         public UIElement FadeScreen;
         public PlanetScene Planet;
@@ -20,6 +20,8 @@ namespace Mission
             Report = transform.Find("Report").GetComponent<Report.Report>();
             FadeScreen = transform.Find("FadeScreen").GetComponent<UIElement>();
             Planet = GetComponentInParent<PlanetScene>();
+            
+            CloseAnimation.OnFinishedEvent.AddListener(CallOnMissionCompleted);
         }
 
         public void CallOnMissionStarted()
