@@ -73,7 +73,6 @@ namespace UI.Scenes
         #endregion
 
         #region Skip Step
-
         public void SkipStep()
         {
             undoButton.Close();

@@ -1,6 +1,7 @@
 using Manager;
 using UI.Scenes;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
@@ -10,7 +11,7 @@ namespace UI
         public bool IsLocked;
 
         [SerializeField] private PlanetScene previousPlanetScene;
-        [SerializeField] private PlanetScene planetScene;
+        public PlanetScene PlanetScene;
         [SerializeField] private Image lockedImage;
         [SerializeField] private Button planetButton;
 
@@ -41,8 +42,8 @@ namespace UI
         
         public void EnterPlanet()
         {
-            if (planetScene == null) return;
-            TransitionManager.Instance.ChangeScene(planetScene);
+            if (PlanetScene == null) return;
+            TransitionManager.Instance.ChangeScene(PlanetScene);
         }
     }
 }
