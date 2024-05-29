@@ -1,7 +1,6 @@
 using Manager;
 using UI.Scenes;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
@@ -12,6 +11,8 @@ namespace UI
 
         [SerializeField] private PlanetScene previousPlanetScene;
         public PlanetScene PlanetScene;
+        public PlanetObject NextPlanetObject;
+        public PlanetScene NextPlanetScene;
         [SerializeField] private Image lockedImage;
         [SerializeField] private Button planetButton;
 

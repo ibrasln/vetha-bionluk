@@ -23,6 +23,7 @@ namespace UI.Scenes
             if (planets[2].PlanetScene.IsCompleted) CurrentPlanet = planets[3];
             else if (planets[1].PlanetScene.IsCompleted) CurrentPlanet = planets[2];
             else if (planets[0].PlanetScene.IsCompleted) CurrentPlanet = planets[1];
+            else CurrentPlanet = planets[0];
         }
 
         private void SetCurrentTutorial()
@@ -31,6 +32,14 @@ namespace UI.Scenes
             else if (CurrentPlanet == planets[2]) currentTutorial = Tutorials[2];
             else if (CurrentPlanet == planets[1]) currentTutorial = Tutorials[1];
             else if (CurrentPlanet == planets[0]) currentTutorial = Tutorials[0];
+        }
+
+        public void ChangeSceneDevBuild()
+        {
+            if (!Debug.isDebugBuild) return;
+            
+            TransitionManager.Instance.ChangeScene(CurrentPlanet.NextPlanetScene);
+            CurrentPlanet = CurrentPlanet.NextPlanetObject;
         }
         
         protected override IEnumerator SkipStepRoutine()
