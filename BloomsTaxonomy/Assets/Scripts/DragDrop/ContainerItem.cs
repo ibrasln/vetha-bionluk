@@ -45,6 +45,7 @@ namespace DragDrop
         private void OnWrong(DraggableItem draggableItem)
         {
             draggableItem.ReturnOldPosition();
+            draggableItem.SetIsContained(false);
             OnWrongDrop?.Invoke();
         }
 

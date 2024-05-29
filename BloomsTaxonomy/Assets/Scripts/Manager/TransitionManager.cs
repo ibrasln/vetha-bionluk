@@ -56,11 +56,9 @@ namespace Manager
             
             yield return new WaitForSeconds(1.25f);
             
-            Debug.Log("CURRENT SCENE:" + CurrentScene);
             CurrentScene.Deactivate();
             CurrentScene = scene;
             CurrentScene.Activate();
-            Debug.Log("CURRENT SCENE:" + CurrentScene);
 
             fadeScreenWindow.Close();
             

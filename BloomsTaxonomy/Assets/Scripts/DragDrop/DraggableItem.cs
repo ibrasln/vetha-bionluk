@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -51,6 +52,16 @@ namespace DragDrop
             
             if (state) OnContained?.Invoke();
             else OnContainFailed?.Invoke();
+        }
+
+        public void ChangeColorToRed()
+        {
+            image.DOColor(Color.red, .75f).OnComplete(() => image.DOColor(Color.white, .75f));
+        }
+        
+        public void ChangeColorToGreen()
+        {
+            image.DOColor(Color.green, .75f).OnComplete(() => image.DOColor(Color.white, .75f));
         }
     }
 }
